@@ -11,13 +11,13 @@ class User extends Component {
   }
 
 
-
   getUser = (userID) => {
     fetch(`http://localhost:8080/api/users/${userID}`, {
       accept: 'application/json',
     }).then(this.parseJSON).then( (response) => {
       this.setState({user: response.user});
-      this.setState({subscriptions: this.state.user.subscriptions})
+      this.setState({subscriptions: this.state.user.subscriptions});
+      this.setState({trials: this.state.user.trials})
     }).catch(function(err) {
       console.log(err);
     });
