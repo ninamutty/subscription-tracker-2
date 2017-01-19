@@ -6,17 +6,19 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import App from './App';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
+import Verify from './components/Verify';
+
 
 
 // Routes
 const routes = (
   <Router history={browserHistory}>
-    <Route path="/" component={App} />
+    <Route component={App} >
+      <Route path="/" component={Verify} />
+      <Route path="home/:user_id" component={Home} />
+      <Route path="*" component={NotFound} />
+    </Route>
   </Router>
 );
 
 export default routes;
-// <Route component={App}>
-//   <Route path="/" component={Home} />
-//   <Route path="*" component={NotFound} />
-// </Route>
