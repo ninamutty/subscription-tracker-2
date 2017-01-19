@@ -5,7 +5,7 @@ class Home extends Component {
     super(props);
     this.userID = props.params.user_id;
     console.log(this.userID);
-    this.state = {user: {}}
+    this.state = {user: {}, isFetching: true}
   }
 
   getUser(userID) {
@@ -24,13 +24,24 @@ class Home extends Component {
 
   checkUser() {
     if (this.state.user.name === undefined) {
-      return this.getUser(this.userID)
+      let user = this.getUser(this.userID)
     }
   }
 
-  mapSubscriptions() {
-    let subscriptions = this.state.user.subscriptions;
-    let subscriptionList = subscriptions
+  getSubscriptions() {
+    if (this.state.user.subscriptions !== undefined) {
+      let subscriptionList = this.state.user.subscriptions;
+      console.log(this.state.user);
+      let subscriptions = subscriptionList.map((subscription) => {
+        return
+          <li>
+            <h3> { subscription.name } </h3>
+            <p> Price: ${subscription.cost/100.00} </p>
+            <p> Billing Cycle: ${subscription.billingCycle} </p>
+            <p> Category: {subscription.category} </p>
+          </li>
+      })
+    }
   }
 
   render() {
@@ -38,10 +49,30 @@ class Home extends Component {
       <div className="Home">
         { this.checkUser() }
         <h1> Welcome, {this.state.user.name} </h1>
+        <ul>
+          { this.getSubscriptions()  }
+        </ul>
       </div>
     );
   }
 }
+
+// render() {
+//     let courseList = this.props.route.data;
+//     let courses = courseList.map((course) => {
+//       return <Course title={course.title}
+//                      desc={course.description}
+//                      img={course.img_src}
+//                      key={course.id} />
+//     });
+//     return (
+//       <div>
+//         <ul>
+//           {courses}
+//         </ul>
+//       </div>
+//     );
+//   }
 
 export default Home;
 
