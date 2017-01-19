@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Link } from 'react-router';
+import jwtDecode from 'jwt-decode';
 
 class App extends Component {
-  state = {
-    user: {},
+  constructor() {
+    super();
+    this.state = { user: {}, token: '', userID: '' }
+    this.handleNewUserSubmit = this.handleNewUserSubmit.bind(this)
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+    this.getUser = this.getUser.bind(this)
   }
+
 
   parseJSON = (response) => {
     return response.json();
@@ -46,13 +52,13 @@ class App extends Component {
 
   handleLoginSubmit(event) {
     event.preventDefault();
-    console.log("In handleLoginSubmit");
+    console.log("1. In handleLoginSubmit");
     let email = event.target.elements[0].value;
     let password = event.target.elements[1].value;
     let user = {email: email, password: password}
     console.log(user);
 
-    console.log("In createUser");
+    console.log("3. In createUser");
     fetch('http://localhost:8080/login', {
       method: 'POST',
       headers: {
@@ -60,13 +66,21 @@ class App extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: user.email,
-        password: user.password,
+        "email": user.email,
+        "password": user.password,
       })
     }).then( (response) => {
       return response.json();
     }).then( (response) => {
-      this.setState({user: response.user})
+      console.log(response);
+      // this.setState({token: response})
+      var decoded = jwtDecode(response)
+      console.log("4. >>>>>DEcoding");
+      console.log(decoded);
+      this.setState({userID: decoded.id})
+    }).then( () => {
+      console.log(this.state.userID);
+      this.getUser(this.state.userID)
     }).catch(function(err) {
       console.log(err);
     });
@@ -74,6 +88,21 @@ class App extends Component {
     // browserHistory.push(path);
   }
 
+  getUser(userID) {
+    console.log("5. userid: " + userID);
+    console.log("6. fetch user");
+    fetch(`http://localhost:8080/api/users/${userID}`, {
+      accept: 'application/json',
+    }).then( (response) => {
+      return response.json();
+    }).then( (response) => {
+      console.log("7. set user");
+      console.log(response);
+      this.setState({user: response.user})
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
 
 
   render() {
@@ -98,6 +127,9 @@ class App extends Component {
         </form>
 
         <h2> Hello, {this.state.user.name}</h2>
+        <p> {this.state.user._id} </p>
+        <p>Token Decode:  {this.state.userID} </p>
+
 
       </div>
     );
