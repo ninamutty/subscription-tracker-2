@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
-const Subscription = props => (
-  <li className="subscription-solo">
-    <h3> { props.name } </h3>
-    <p> Price: ${props.cost/100.00} </p>
-    <p> Category: {props.category} </p>
-  </li>
-);
+class Subscription extends Component {
+
+  render() {
+    console.log(this.props)
+
+    return (
+      <li className="subscription-solo">
+        <h3 onClick> { this.props.name } </h3>
+        <p> Price: ${this.props.cost/100.00} </p>
+        <p> Category: {this.props.category} </p>
+      </li>
+    );
+  }
+}
 
 export default Subscription;
+
+// <NavLink to="/courses/html">HTML</NavLink>
+// <Link to= activeClassName="active" />

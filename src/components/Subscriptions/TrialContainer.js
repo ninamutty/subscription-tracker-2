@@ -3,7 +3,7 @@ import Trial from './Trial';
 
 class TrialContainer extends Component {
   render() {
-    let trialList = this.props.trialList;
+    let trialList = this.props.trials;
     let trials = trialList.map((trial) => {
       return <Trial name={trial.name}
                      cost={trial.cost}

@@ -3,7 +3,8 @@ import Subscription from './Subscription';
 
 class SubscriptionContainer extends Component {
   render() {
-    let subscriptionList = this.props.subscriptionList;
+    console.log(this.props.subscriptions);
+    let subscriptionList = this.props.subscriptions;
     let subscriptions = subscriptionList.map((subscription) => {
       return <Subscription name={subscription.name}
                      cost={subscription.cost}
