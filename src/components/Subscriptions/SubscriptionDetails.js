@@ -1,10 +1,74 @@
 import React, { Component } from 'react';
 import Subscription from './Subscription';
+import Trial from './Trial'
+import moment from 'moment';
 
 class SubscriptionDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {subscription: {}, isTrial: false}
+    this.findSubscription = this.findSubscription.bind(this)
+    this.checkSubscription = this.checkSubscription.bind(this)
+    this.renderSubscription = this.renderSubscription.bind(this)
+  }
+
+
+  findSubscription() {
+    if (this.props.subscriptions.length !== 0) {
+      this.props.subscriptions.map((subscription) => {
+        if (subscription._id == this.props.params.subscription_id) {
+          return this.setState({subscription: subscription});
+        }
+      });
+    }
+    if (this.state.subscription.name !== undefined) {
+      this.props.trials.map((trial) => {
+        if (trial._id === this.props.params.trial_id) {
+          return this.setState({subscription: trial, isTrial: true})
+        }
+      })
+    }
+  }
+
+
+  checkSubscription() {
+    if (this.state.subscription.name === undefined) {
+      return this.findSubscription();
+    }
+  }
+
+  renderSubscription() {
+    if (this.state.subscription.name !== undefined) {
+      let subscription = this.state.subscription
+      let firstBill = moment(new Date(subscription.firstBillDate)).format("dddd, MMMM Do YYYY")
+      let nextBill = moment(new Date(subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+      let notificationDate = moment(new Date(subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+
+      return (
+        <div>
+          <h2>{subscription.name}</h2>
+          <p> Price: ${subscription.cost/100.00}</p>
+          <p> Category: {subscription.category}</p>
+          <p> Your Rating: {subscription.userRating}</p>
+
+          <p> First Billing Date: {firstBill}</p>
+          <p> Next Billing Date: {nextBill}</p>
+          <p> Notification Date: {notificationDate}</p>
+          <p> Billing Cycle: {subscription.billingCycle}</p>
+        </div>
+
+      );
+    }
+  }
+
   render() {
+    this.checkSubscription();
+    console.log(this.state.subscription);
     return (
-      <h1>Subscription Details</h1>
+      <div>
+        {this.renderSubscription()}
+      </div>
+
     );
   }
 }

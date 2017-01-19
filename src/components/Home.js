@@ -50,7 +50,12 @@ class Home extends Component {
   sendChildren() {
     if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0 && this.state.user.trials.length !== 0) {
       var childrenWithProps = React.cloneElement(this.props.children, {subscriptions: this.state.user.subscriptions, trials: this.state.user.trials});
-      // console.log(childrenWithProps);
+      return childrenWithProps
+    } else if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0 && this.state.user.trials.length === 0) {
+      var childrenWithProps = React.cloneElement(this.props.children, {subscriptions: this.state.user.subscriptions});
+      return childrenWithProps
+    } else if (this.state.user.name !== undefined && this.state.user.trials.length !== 0 && this.state.user.subscriptions.length === 0) {
+      var childrenWithProps = React.cloneElement(this.props.children, {trials: this.state.user.trials});
       return childrenWithProps
     }
   }
