@@ -9,7 +9,6 @@ const Trial = props => {
       <h3> { props.name } </h3>
       <h4> First Bill: {firstBill}</h4>
       <p> Price: ${props.cost/100.00} </p>
-      <p> Billing Cycle: {props.billingCycle} </p>
       <p> Category: {props.category} </p>
     </li>
   );

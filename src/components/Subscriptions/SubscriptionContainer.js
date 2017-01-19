@@ -7,7 +7,6 @@ class SubscriptionContainer extends Component {
     let subscriptions = subscriptionList.map((subscription) => {
       return <Subscription name={subscription.name}
                      cost={subscription.cost}
-                     billingCycle={subscription.billingCycle}
                      category={subscription.category}
                      key={subscription._id} />
     });

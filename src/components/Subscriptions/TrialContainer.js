@@ -7,7 +7,6 @@ class TrialContainer extends Component {
     let trials = trialList.map((trial) => {
       return <Trial name={trial.name}
                      cost={trial.cost}
-                     billingCycle={trial.billingCycle}
                      category={trial.category}
                      firstBillDate={trial.firstBillDate}
                      key={trial._id} />
