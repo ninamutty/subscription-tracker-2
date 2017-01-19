@@ -9,6 +9,8 @@ class TrialContainer extends Component {
                      cost={trial.cost}
                      category={trial.category}
                      firstBillDate={trial.firstBillDate}
+                     userID={this.props.params.user_id}
+                     id={trial._id}
                      key={trial._id} />
     });
     return (

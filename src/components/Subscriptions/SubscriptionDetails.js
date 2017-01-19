@@ -21,9 +21,9 @@ class SubscriptionDetails extends Component {
         }
       });
     }
-    if (this.state.subscription.name !== undefined) {
+    if (this.state.subscription.name === undefined) {
       this.props.trials.map((trial) => {
-        if (trial._id === this.props.params.trial_id) {
+        if (trial._id === this.props.params.subscription_id) {
           return this.setState({subscription: trial, isTrial: true})
         }
       })
@@ -37,11 +37,19 @@ class SubscriptionDetails extends Component {
     }
   }
 
+  findNextBill() {
+    if (this.state.isTrial === false) {
+      let nextBill = moment(new Date(this.state.subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+      return <p>Next Billing Date: {nextBill} </p>
+    }
+  }
+
   renderSubscription() {
+
     if (this.state.subscription.name !== undefined) {
       let subscription = this.state.subscription
       let firstBill = moment(new Date(subscription.firstBillDate)).format("dddd, MMMM Do YYYY")
-      let nextBill = moment(new Date(subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+
       let notificationDate = moment(new Date(subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
 
       return (
@@ -52,7 +60,7 @@ class SubscriptionDetails extends Component {
           <p> Your Rating: {subscription.userRating}</p>
 
           <p> First Billing Date: {firstBill}</p>
-          <p> Next Billing Date: {nextBill}</p>
+          { this.findNextBill() }
           <p> Notification Date: {notificationDate}</p>
           <p> Billing Cycle: {subscription.billingCycle}</p>
         </div>
@@ -63,7 +71,6 @@ class SubscriptionDetails extends Component {
 
   render() {
     this.checkSubscription();
-    console.log(this.state.subscription);
     return (
       <div>
         {this.renderSubscription()}
