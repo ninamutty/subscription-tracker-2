@@ -7,7 +7,6 @@ class Login extends Component {
     super();
     this.state = { user: {}, userID: '' }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
-    this.getUser = this.getUser.bind(this)
   }
 
   // send post request to login a user

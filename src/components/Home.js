@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import SubscriptionContainer from './Subscriptions/SubscriptionContainer';
+import TrialContainer from './Subscriptions/TrialContainer';
+
 
 class Home extends Component {
   constructor(props) {
@@ -24,55 +27,39 @@ class Home extends Component {
 
   checkUser() {
     if (this.state.user.name === undefined) {
-      let user = this.getUser(this.userID)
+      this.getUser(this.userID)
     }
   }
 
-  getSubscriptions() {
-    if (this.state.user.subscriptions !== undefined) {
-      let subscriptionList = this.state.user.subscriptions;
-      console.log(this.state.user);
-      let subscriptions = subscriptionList.map((subscription) => {
-        return
-          <li>
-            <h3> { subscription.name } </h3>
-            <p> Price: ${subscription.cost/100.00} </p>
-            <p> Billing Cycle: ${subscription.billingCycle} </p>
-            <p> Category: {subscription.category} </p>
-          </li>
-      })
+  sendSubscriptions() {
+    console.log(this.state.user);
+    console.log("send");
+    if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0) {
+        return <SubscriptionContainer subscriptionList={this.state.user.subscriptions} />
+    }
+  }
+
+  sendTrials() {
+    console.log(this.state.user);
+    console.log("send");
+    if (this.state.user.name !== undefined && this.state.user.trials.length !== 0) {
+        return <TrialContainer trialList={this.state.user.trials} />
     }
   }
 
   render() {
+    this.checkUser();
+
     return (
       <div className="Home">
-        { this.checkUser() }
         <h1> Welcome, {this.state.user.name} </h1>
-        <ul>
-          { this.getSubscriptions()  }
-        </ul>
+        {this.sendSubscriptions()}
+        {this.sendTrials()}
       </div>
     );
   }
 }
 
-// render() {
-//     let courseList = this.props.route.data;
-//     let courses = courseList.map((course) => {
-//       return <Course title={course.title}
-//                      desc={course.description}
-//                      img={course.img_src}
-//                      key={course.id} />
-//     });
-//     return (
-//       <div>
-//         <ul>
-//           {courses}
-//         </ul>
-//       </div>
-//     );
-//   }
 
 export default Home;
 
