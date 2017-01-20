@@ -31,7 +31,6 @@ class Home extends Component {
   }
 
   checkUser() {
-    // console.log("CHECK USER");
     if (this.state.user.name === undefined) {
       this.getUser(this.userID)
     }
@@ -49,19 +48,17 @@ class Home extends Component {
 
   showDetails = () => {
     if (this.state.showDetails === true) {
-      return  <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} />
+      return  <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} userID={this.userID}/>
     }
   }
 
   sendSubscriptions() {
-    // console.log("SEND SUBS");
     if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0) {
          return <SubscriptionContainer subscriptions={this.state.user.subscriptions} onClick={this.selectSubscription} setSelectState={this.setSelectState}/>
     }
   }
 
   sendTrials() {
-    // console.log("SEND TRIALS");
     if (this.state.user.name !== undefined && this.state.user.trials.length !== 0) {
       return <TrialContainer trials={this.state.user.trials} onClick={this.selectSubscription} setSelectState={this.setSelectState} />
     }
@@ -69,10 +66,7 @@ class Home extends Component {
 
 
   renderUser() {
-    // console.log("RENDER USER");
-    // console.log(this.state.user);
     if (this.state.user.name !== undefined) {
-      // console.log("IN HERE");
       console.log(this.state.user._id);
       let formPath = `/home/${this.state.user._id}/form`
       return (

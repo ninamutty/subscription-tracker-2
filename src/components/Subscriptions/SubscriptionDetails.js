@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Subscription from './Subscription';
 import Trial from './Trial'
 import moment from 'moment';
+import { browserHistory } from 'react-router';
 
 class SubscriptionDetails extends Component {
   constructor(props) {
@@ -10,8 +11,37 @@ class SubscriptionDetails extends Component {
     this.findSubscription = this.findSubscription.bind(this)
     this.checkSubscription = this.checkSubscription.bind(this)
     this.renderSubscription = this.renderSubscription.bind(this)
+    this.deleteSubscription = this.deleteSubscription.bind(this)
   }
 
+  deleteSubscription(event) {
+    event.preventDefault();
+    const BASE_URL = 'http://localhost:8080/'
+    let userID = this.props.userID;
+    let subscriptionID = this.props.subscriptionID;
+    let type;
+    if (this.state.isTrial == true) {
+      type = 'trials';
+    } else {
+      type = 'subscriptions';
+    }
+
+    if (window.confirm("Are you sure?")) {
+      fetch(`${BASE_URL}api/users/${userID}/${type}/${subscriptionID}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      }).then(() => {
+        let path = `/home/${userID}`;
+        this.forceUpdate();
+        browserHistory.push(path);
+      }).catch(function(err) {
+        console.log(err);
+      });
+    };
+  }
 
   findSubscription() {
       this.props.subscriptions.map((subscription) => {
@@ -58,6 +88,7 @@ class SubscriptionDetails extends Component {
           <p> First Billing Date: {firstBill}</p>
           { this.findNextBill() }
           <p> Billing Cycle: {subscription.billingCycle}</p>
+          <button onClick={this.deleteSubscription}> Delete </button>
         </div>
 
       );

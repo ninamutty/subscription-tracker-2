@@ -5,10 +5,6 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 require('react-datepicker/dist/react-datepicker.css');
 
-// Components
-// import SubscriptionContainer from './Subscriptions/SubscriptionContainer';
-// import TrialContainer from './Subscriptions/TrialContainer';
-// import SubscriptionDetails from './Subscriptions/SubscriptionDetails';
 
 class Form extends Component {
   constructor(props) {
@@ -26,20 +22,8 @@ class Form extends Component {
     let cost = this.state.cost;
     cost = parseInt(cost.replace('$', '').replace('.', ''));
     let userRating = parseInt(this.state.userRating);
-    // console.log(userRating);
-    // console.log("before dates");
     let firstBillDate = new Date(this.state.firstBillDate._d)
-    // console.log(firstBillDate);
-    // console.log("between dates");
-    //
     let nextBillingDate = new Date(this.state.nextBillingDate._d)
-    // console.log(nextBillingDate);
-    // console.log("after dates");
-
-    console.log(">>>>>>>>>>");
-    console.log(this.state);
-    console.log("Rating:" + userRating);
-    console.log("Cost:" + cost);
 
     let subscription = {
       name: this.state.name,
@@ -51,20 +35,17 @@ class Form extends Component {
       billingCycle: this.state.billingCycle
     }
 
-    // console.log(subscription);
-
     this.createNew(subscription);
   }
 
   createNew(subscription) {
     const BASE_URL = 'http://localhost:8080/'
     let userID = this.props.params.user_id
-    // console.log(this.state.isTrial == "false");
+
+    // Post to user subscriptions or user trials
     if (this.state.isTrial == "false") {
-      console.log("FALSE");
        this.createSubscription(subscription, BASE_URL, userID);
     } else if (this.state.isTrial == "true") {
-      console.log("TRUE");
       this.createTrial(subscription, BASE_URL, userID);
     }
   }
@@ -148,7 +129,7 @@ class Form extends Component {
 
 
   render() {
-    // console.log(this.props.params.user_id);
+    console.log(this.props);
 
     let user_id = this.props.params.user_id
     return (
