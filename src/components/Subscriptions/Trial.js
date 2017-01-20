@@ -7,11 +7,6 @@ class Trial extends Component {
     super(props);
   }
 
-  selectSubscription() {
-    // console.log("selected");
-
-  }
-
   render() {
     let firstBill = moment(new Date(this.props.firstBillDate)).format("dddd, MMMM Do YYYY");
     // console.log(this.props);

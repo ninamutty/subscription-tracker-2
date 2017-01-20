@@ -14,27 +14,22 @@ class SubscriptionDetails extends Component {
 
 
   findSubscription() {
-    // console.log(this.props);
-    if (this.props.subscriptions.length !== 0) {
       this.props.subscriptions.map((subscription) => {
         if (subscription._id == this.props.subscriptionID) {
           return this.setState({subscription: subscription});
         }
       });
-    }
-    if (this.state.subscription.name === undefined) {
       this.props.trials.map((trial) => {
         if (trial._id === this.props.subscriptionID) {
           return this.setState({subscription: trial, isTrial: true});
         }
       })
-    }
   }
 
 
   checkSubscription() {
-    if (this.state.subscription.name === undefined) {
-      return this.findSubscription();
+    if (this.state.subscription._id !== this.props.subscriptionID) {
+       this.findSubscription();
     }
   }
 

@@ -38,24 +38,18 @@ class Home extends Component {
   }
 
   selectSubscription() {
-    console.log(">>>>>>>>>>>>>>");
-    console.log();
-    console.log(this.props);
-    console.log(">>>>>>>>>>>>>>");
     let id = this.props.id;
     this.props.setSelectState(id)
   }
 
   setSelectState = (id) => {
-    console.log('setSelectState');
+    this.setState({showDetails: false, subscriptionID: ''});
     return this.setState({showDetails: true, subscriptionID: id});
   }
 
   showDetails = () => {
-    console.log(this.state);
-    console.log("in showDetails");
     if (this.state.showDetails === true) {
-      return <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} />
+      return  <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} />
     }
   }
 
