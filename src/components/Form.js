@@ -51,11 +51,9 @@ class Form extends Component {
       billingCycle: this.state.billingCycle
     }
 
-    console.log(subscription);
+    // console.log(subscription);
 
     this.createNew(subscription);
-    // this.setState({cost: cost, userRating: userRating});
-    // console.log(this.state);
   }
 
   createNew(subscription) {
@@ -92,7 +90,7 @@ class Form extends Component {
     }).then((response) => {
         let subscriptionID = response.subscription._id;
         // console.log(subscriptionID);
-        let path = `home/${userID}`;
+        let path = `/home/${userID}`;
         browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);
@@ -120,7 +118,7 @@ class Form extends Component {
     }).then((response) => {
       let subscriptionID = response.trial._id;
       // console.log(subscriptionID);
-      let path = `home/${userID}`;
+      let path = `/home/${userID}`;
       browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);
@@ -135,17 +133,19 @@ class Form extends Component {
     this.setState(change);
   }
 
+
   handleChange = (changeName, event) => {
     var change = {};
     change[changeName] = event.target.value;
     this.setState(change);
   }
 
-  handleCostChange = (changeName, value) => {
+  handleCostAndDateChange = (changeName, value) => {
     var change = {};
     change[changeName] = value;
     this.setState(change);
   }
+
 
   render() {
     // console.log(this.props.params.user_id);
@@ -161,12 +161,12 @@ class Form extends Component {
           </label>
           <label>
             Price:
-            <CurrencyInput value={this.state.cost} onChange={this.handleCostChange.bind(this, 'cost')} decimalSeparator="." thousandSeparator="," prefix="$" onClick={this.handleClick.bind(this, 'cost')} />
+            <CurrencyInput value={this.state.cost} onChange={this.handleCostAndDateChange.bind(this, 'cost')} decimalSeparator="." thousandSeparator="," prefix="$" onClick={this.handleClick.bind(this, 'cost')} />
           </label>
           <label>
             Category:
             <select value={this.state.category} onChange={this.handleChange.bind(this, 'category')}>
-              <option value="Shopping">Cloud Storage</option>
+              <option value="Shopping">Shopping</option>
               <option value="Music Streaming">Music Streaming</option>
               <option value="Video Streaming">Video Streaming</option>
               <option value="Cloud Storage">Cloud Storage</option>
@@ -189,12 +189,12 @@ class Form extends Component {
 
           <label>
             First Billing Date:
-            <DatePicker selected={this.state.firstBillDate} onChange={this.handleChange.bind(this, 'firstBillDate')} />
+            <DatePicker selected={this.state.firstBillDate} onChange={this.handleCostAndDateChange.bind(this, 'firstBillDate')} />
           </label>
 
           <label>
             Next Billing Date:
-            <DatePicker selected={this.state.nextBillingDate} onChange={this.handleChange.bind(this, 'nextBillingDate')} />
+            <DatePicker selected={this.state.nextBillingDate} onChange={this.handleCostAndDateChange.bind(this, 'nextBillingDate')} />
           </label>
 
           <label>
