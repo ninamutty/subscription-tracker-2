@@ -19,7 +19,7 @@ class SubscriptionContainer extends Component {
                      setSelectState={this.props.setSelectState} />
     });
     return (
-      <div>
+      <div className="subscriptions-containers">
         <h2> Subscriptions </h2>
         <ul className="subscription-container">
           {subscriptions}

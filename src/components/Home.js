@@ -84,9 +84,11 @@ class Home extends Component {
     }
   }
 
+
+
+
   render() {
     this.checkUser()
-    // console.log(this.state.user);
     return (
       <div className="Home">
         {this.renderUser()}

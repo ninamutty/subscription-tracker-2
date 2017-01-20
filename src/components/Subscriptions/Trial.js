@@ -13,7 +13,7 @@ class Trial extends Component {
 
 
     return (
-      <div>
+      <div className="single-sub-container-div">
       <li className="trial-solo">
           <h3 className="name-link" onClick={this.props.onClick.bind(this)}> { this.props.name } </h3>
           <h4> First Bill Due: {firstBill} </h4>

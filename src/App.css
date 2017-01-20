@@ -20,6 +20,20 @@
   padding: 1.3% 0 1.3% 3%;
 }
 
+div.subscriptions-containers, ul {margin: 0; width: auto; display:inline-block;}
+
+div.single-sub-container-div, li.subscription-solo, li.trial-solo {
+  margin: auto;
+  width: auto;
+  display: inline-block;
+  border: 1px solid lightgray;
+}
+li.subscription-solo, li.trial-solo {
+  padding: 2%;
+  border: none;
+}
+
+
 
 
 

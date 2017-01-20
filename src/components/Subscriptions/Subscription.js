@@ -9,7 +9,7 @@ class Subscription extends Component {
   render() {
 
     return (
-      <div>
+      <div className="single-sub-container-div">
         <li className="subscription-solo">
           <h3 className="name-link" onClick={this.props.onClick.bind(this, this.props.id)}> { this.props.name } </h3>          <p> Price: ${this.props.cost/100.00} </p>
           <p> Category: {this.props.category} </p>
