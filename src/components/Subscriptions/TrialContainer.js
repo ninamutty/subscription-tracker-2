@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Trial from './Trial';
 
 class TrialContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     let trialList = this.props.trials;
     let trials = trialList.map((trial) => {
@@ -9,9 +13,9 @@ class TrialContainer extends Component {
                      cost={trial.cost}
                      category={trial.category}
                      firstBillDate={trial.firstBillDate}
-                     userID={this.props.params.user_id}
                      id={trial._id}
-                     key={trial._id} />
+                     key={trial._id}
+                     onClick={this.props.onClick} />
     });
     return (
       <div>
@@ -25,3 +29,4 @@ class TrialContainer extends Component {
 }
 
 export default TrialContainer;
+// .bind(this)?

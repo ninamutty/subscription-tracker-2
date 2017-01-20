@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
+
+// Components
 import SubscriptionContainer from './Subscriptions/SubscriptionContainer';
 import TrialContainer from './Subscriptions/TrialContainer';
-import {Link} from 'react-router';
+import SubscriptionDetails from './Subscriptions/SubscriptionDetails';
 
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.userID = props.params.user_id;
-    this.state = {user: {}}
+    this.state = {user: {}, showDetails: false, subscriptionID: ''};
+    this.setSelectState = this.setSelectState.bind(this);
   }
+
 
   getUser(userID) {
     const BASE_URL = 'http://localhost:8080/'
@@ -26,51 +31,71 @@ class Home extends Component {
   }
 
   checkUser() {
+    // console.log("CHECK USER");
     if (this.state.user.name === undefined) {
       this.getUser(this.userID)
     }
   }
 
+  selectSubscription() {
+    console.log(">>>>>>>>>>>>>>");
+    console.log();
+    console.log(this.props);
+    console.log(">>>>>>>>>>>>>>");
+    let id = this.props.id;
+    this.props.setSelectState(id)
+  }
+
+  setSelectState = (id) => {
+    console.log('setSelectState');
+    return this.setState({showDetails: true, subscriptionID: id});
+  }
+
+  showDetails = () => {
+    console.log(this.state);
+    console.log("in showDetails");
+    if (this.state.showDetails === true) {
+      return <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} />
+    }
+  }
+
   sendSubscriptions() {
+    // console.log("SEND SUBS");
     if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0) {
-        var path=`/home/${this.userID}/subscriptions`
-        return <Link {...this.props} to={path} activeClassName="active"> Subscriptions </Link>
-        //  <SubscriptionContainer subscriptionList={this.state.user.subscriptions} />
+         return <SubscriptionContainer subscriptions={this.state.user.subscriptions} onClick={this.selectSubscription} setSelectState={this.setSelectState}/>
     }
   }
 
   sendTrials() {
+    // console.log("SEND TRIALS");
     if (this.state.user.name !== undefined && this.state.user.trials.length !== 0) {
-      var path=`/home/${this.userID}/trials`
-      return  <Link {...this.props} to={path} activeClassName="active"> Trials </Link>
-        // return <TrialContainer trialList={this.state.user.trials} />
+      return <TrialContainer trials={this.state.user.trials} onClick={this.selectSubscription} />
     }
   }
 
-  sendChildren() {
-    if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0 && this.state.user.trials.length !== 0) {
-      var childrenWithProps = React.cloneElement(this.props.children, {subscriptions: this.state.user.subscriptions, trials: this.state.user.trials});
-      return childrenWithProps
-    } else if (this.state.user.name !== undefined && this.state.user.subscriptions.length !== 0 && this.state.user.trials.length === 0) {
-      var childrenWithProps = React.cloneElement(this.props.children, {subscriptions: this.state.user.subscriptions});
-      return childrenWithProps
-    } else if (this.state.user.name !== undefined && this.state.user.trials.length !== 0 && this.state.user.subscriptions.length === 0) {
-      var childrenWithProps = React.cloneElement(this.props.children, {trials: this.state.user.trials});
-      return childrenWithProps
+
+  renderUser() {
+    // console.log("RENDER USER");
+    // console.log(this.state.user);
+    if (this.state.user.name !== undefined) {
+      // console.log("IN HERE");
+      return (
+        <div className="inner-home">
+          <h1> Welcome, {this.state.user.name} </h1>
+          {this.sendSubscriptions()}
+          {this.sendTrials()}
+          {this.showDetails()}
+        </div>
+      )
     }
   }
-
 
   render() {
-    this.checkUser();
-
+    this.checkUser()
+    // console.log(this.state.user);
     return (
       <div className="Home">
-        <h1> Welcome, {this.state.user.name} </h1>
-        {this.sendSubscriptions()}
-        {this.sendTrials()}
-
-        { this.sendChildren() }
+        {this.renderUser()}
       </div>
     );
   }

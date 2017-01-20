@@ -20,12 +20,7 @@ const routes = (
     <Route component={App} >
       <Route path="/" component={Verify} />
 
-      <Route path="home/:user_id" component={Home} >
-        <IndexRedirect to="subscriptions" />
-        <Route path="subscriptions" component={SubscriptionContainer}  />
-        <Route path="trials" component={TrialContainer} />
-        <Route path="featured/:subscription_id" component={SubscriptionDetails} />
-      </Route>
+      <Route path="home/:user_id" component={Home} />
 
       <Route path="*" component={NotFound} />
     </Route>
@@ -35,3 +30,9 @@ const routes = (
 export default routes;
 
 // subscriptionList={Home.state.user.subscriptions}
+
+// <IndexRedirect to="subscriptions" />
+// <Route path="subscriptions" component={SubscriptionContainer}  />
+// <Route path="trials" component={TrialContainer} />
+// <Route path=":subscription_id" component={SubscriptionDetails} />
+// </Route>

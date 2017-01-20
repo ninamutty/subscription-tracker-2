@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 class Subscription extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
-    var path=`/home/${this.props.userID}/featured/${this.props.id}`
 
     return (
       <div>
         <li className="subscription-solo">
-          <Link to={path} activeClassName="active-sub" {...this.props} > { this.props.name } </Link>
-          <p> Price: ${this.props.cost/100.00} </p>
+          <h3 className="name-link" onClick={this.props.onClick.bind(this, this.props.id)}> { this.props.name } </h3>          <p> Price: ${this.props.cost/100.00} </p>
           <p> Category: {this.props.category} </p>
         </li>
         { this.props.children }

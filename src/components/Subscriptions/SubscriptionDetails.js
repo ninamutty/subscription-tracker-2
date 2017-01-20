@@ -14,17 +14,18 @@ class SubscriptionDetails extends Component {
 
 
   findSubscription() {
+    // console.log(this.props);
     if (this.props.subscriptions.length !== 0) {
       this.props.subscriptions.map((subscription) => {
-        if (subscription._id == this.props.params.subscription_id) {
+        if (subscription._id == this.props.subscriptionID) {
           return this.setState({subscription: subscription});
         }
       });
     }
     if (this.state.subscription.name === undefined) {
       this.props.trials.map((trial) => {
-        if (trial._id === this.props.params.subscription_id) {
-          return this.setState({subscription: trial, isTrial: true})
+        if (trial._id === this.props.subscriptionID) {
+          return this.setState({subscription: trial, isTrial: true});
         }
       })
     }
@@ -45,7 +46,7 @@ class SubscriptionDetails extends Component {
   }
 
   renderSubscription() {
-
+    console.log(this.state.subscription);
     if (this.state.subscription.name !== undefined) {
       let subscription = this.state.subscription
       let firstBill = moment(new Date(subscription.firstBillDate)).format("dddd, MMMM Do YYYY")
@@ -70,6 +71,7 @@ class SubscriptionDetails extends Component {
   }
 
   render() {
+    console.log("rendering subscription detail");
     this.checkSubscription();
     return (
       <div>
