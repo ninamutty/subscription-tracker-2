@@ -15,7 +15,8 @@ class TrialContainer extends Component {
                      firstBillDate={trial.firstBillDate}
                      id={trial._id}
                      key={trial._id}
-                     onClick={this.props.onClick} />
+                     onClick={this.props.onClick}
+                     setSelectState={this.props.setSelectState} />
     });
     return (
       <div>

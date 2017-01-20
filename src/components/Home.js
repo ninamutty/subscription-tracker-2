@@ -69,7 +69,7 @@ class Home extends Component {
   sendTrials() {
     // console.log("SEND TRIALS");
     if (this.state.user.name !== undefined && this.state.user.trials.length !== 0) {
-      return <TrialContainer trials={this.state.user.trials} onClick={this.selectSubscription} />
+      return <TrialContainer trials={this.state.user.trials} onClick={this.selectSubscription} setSelectState={this.setSelectState} />
     }
   }
 
