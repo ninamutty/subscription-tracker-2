@@ -44,7 +44,8 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="sign-up-form-container">
+      <div className="sign-up-form-container column small-12 medium-6 large-6">
+        <h3>Please Sign Up to Begin</h3>
         <form onSubmit={this.handleNewUserSubmit}>
           <input type="text" placeholder="Name"/>
           <input type="text" placeholder="Email"/>

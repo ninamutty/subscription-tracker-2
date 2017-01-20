@@ -65,7 +65,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-form-container">
+      <div className="login-form-container column small-12 medium-6 large-6">
+        <h3>Already have an account? Please Login to Continue </h3>
         <form onSubmit={this.handleLoginSubmit}>
           <input type="text" placeholder="Email"/>
           <input type="text" placeholder="Password"/>

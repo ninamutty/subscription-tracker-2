@@ -6,9 +6,8 @@ class App extends Component {
   render() {
     return (
       <div className="main-content App">
-        <header>
-          <h1>Welcome to Subscription Tracker! </h1>
-          <p>Track all of your subscriptions in one place to more easily manage your spending! </p>
+        <header className="header">
+          <h1 className="header-title"> Subscription Tracker </h1>
         </header>
         { this.props.children }
       </div>

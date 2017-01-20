@@ -11,12 +11,14 @@ class Verify extends Component {
   render() {
     return (
       <div className="main-content Verify">
+        <h1>Welcome to Subscription Tracker! </h1>
+        <p>Track all of your subscriptions in one place to more easily manage your spending! </p>
 
-        <h3>Please Sign Up to Begin</h3>
-        <SignUp />
+        <div className="forms row">
+          <SignUp />
 
-        <p>Already have an account? Please Login to Continue </p>
-        <Login />
+          <Login />
+        </div>
       </div>
     );
   }
