@@ -13,29 +13,122 @@ require('react-datepicker/dist/react-datepicker.css');
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: 'Subscription', cost: '0.00', firstBillDate: moment(), userRating: '5', category: 'Shopping', nextBillingDate: moment(), billingCycle: 'Monthly', isTrial: false }
+    this.state = {name: 'Subscription', cost: '0.00', firstBillDate: moment(), userRating: '5', category: 'Shopping', nextBillingDate: moment(), billingCycle: 'Monthly', isTrial: "false" }
     this.handleChange = this.handleChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
+    this.createNew = this.createNew.bind(this);
+    this.createSubscription = this.createSubscription.bind(this);
+    this.createTrial = this.createTrial.bind(this);
   }
 
   formSubmit(event) {
     event.preventDefault();
-    // str = str.replace('$', '').replace('.', '');
     let cost = this.state.cost;
-    cost = cost.replace('$', '').replace('.', '');
-
+    cost = parseInt(cost.replace('$', '').replace('.', ''));
+    let userRating = parseInt(this.state.userRating);
+    // console.log(userRating);
     // console.log("before dates");
     let firstBillDate = new Date(this.state.firstBillDate._d)
-    console.log(firstBillDate);
+    // console.log(firstBillDate);
     // console.log("between dates");
     //
     let nextBillingDate = new Date(this.state.nextBillingDate._d)
-    console.log(nextBillingDate);
+    // console.log(nextBillingDate);
     // console.log("after dates");
-    this.setState({cost: cost});
-    console.log(this.state);
 
+    console.log(">>>>>>>>>>");
+    console.log(this.state);
+    console.log("Rating:" + userRating);
+    console.log("Cost:" + cost);
+
+    let subscription = {
+      name: this.state.name,
+      cost: cost,
+      userRating: userRating,
+      firstBillDate: firstBillDate,
+      nextBillingDate: nextBillingDate,
+      category: this.state.category,
+      billingCycle: this.state.billingCycle
+    }
+
+    console.log(subscription);
+
+    this.createNew(subscription);
+    // this.setState({cost: cost, userRating: userRating});
+    // console.log(this.state);
   }
+
+  createNew(subscription) {
+    const BASE_URL = 'http://localhost:8080/'
+    let userID = this.props.params.user_id
+    // console.log(this.state.isTrial == "false");
+    if (this.state.isTrial == "false") {
+      console.log("FALSE");
+       this.createSubscription(subscription, BASE_URL, userID);
+    } else if (this.state.isTrial == "true") {
+      console.log("TRUE");
+      this.createTrial(subscription, BASE_URL, userID);
+    }
+  }
+
+  createSubscription(subscription, BASE_URL, userID) {
+    fetch(`${BASE_URL}api/users/${userID}/subscriptions`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "name": subscription.name,
+        "cost": subscription.cost,
+        "userRating": subscription.userRating,
+        "firstBillDate": subscription.firstBillDate,
+        "nextBillingDate": subscription.nextBillingDate,
+        "category": subscription.category,
+        "billingCycle": subscription.billingCycle
+      })
+    }).then( (response) => {
+       return response.json();
+    }).then((response) => {
+        let subscriptionID = response.subscription._id;
+        // console.log(subscriptionID);
+        let path = `home/${userID}`;
+        browserHistory.push(path);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  createTrial(subscription, BASE_URL, userID) {
+    fetch(`${BASE_URL}api/users/${userID}/trials`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "name": subscription.name,
+        "cost": subscription.cost,
+        "userRating": subscription.userRating,
+        "firstBillDate": subscription.firstBillDate,
+        "nextBillingDate": subscription.nextBillingDate,
+        "category": subscription.category,
+        "billingCycle": subscription.billingCycle
+      })
+    }).then( (response) => {
+      return response.json();
+    }).then((response) => {
+      let subscriptionID = response.trial._id;
+      // console.log(subscriptionID);
+      let path = `home/${userID}`;
+      browserHistory.push(path);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+
+
   handleClick = (changeName) => {
     var change = {};
     change[changeName] = '';
@@ -117,8 +210,8 @@ class Form extends Component {
           <label>
             Subscription in Trial:
             <select value={this.state.isTrial} onChange={this.handleChange.bind(this, 'isTrial')}>
-              <option value="No">No</option>
-              <option value="Yes">Yes</option>
+              <option value={false}>No</option>
+              <option value={true}>Yes</option>
             </select>
           </label>
 
