@@ -73,12 +73,17 @@ class Home extends Component {
     // console.log(this.state.user);
     if (this.state.user.name !== undefined) {
       // console.log("IN HERE");
+      console.log(this.state.user._id);
+      let formPath = `/home/${this.state.user._id}/form`
       return (
         <div className="inner-home">
           <h1> Welcome, {this.state.user.name} </h1>
+          <Link to={formPath} {...this.props}> + Add </Link>
           {this.sendSubscriptions()}
           {this.sendTrials()}
           {this.showDetails()}
+
+          {this.props.children}
         </div>
       )
     }

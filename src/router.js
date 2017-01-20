@@ -7,11 +7,7 @@ import App from './App';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import Verify from './components/Verify';
-import SubscriptionContainer from './components/Subscriptions/SubscriptionContainer';
-import SubscriptionDetails from './components/Subscriptions/SubscriptionDetails';
-import TrialContainer from './components/Subscriptions/TrialContainer';
-import TrialDetails from './components/Subscriptions/TrialDetails';
-
+import Form from './components/Form';
 
 
 // Routes
@@ -20,7 +16,9 @@ const routes = (
     <Route component={App} >
       <Route path="/" component={Verify} />
 
-      <Route path="home/:user_id" component={Home} />
+      <Route path="home/:user_id" component={Home} >
+        <Route path="form" component={Form} title="Form" />
+      </Route>
 
       <Route path="*" component={NotFound} />
     </Route>

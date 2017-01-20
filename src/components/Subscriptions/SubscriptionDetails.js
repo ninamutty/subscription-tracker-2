@@ -57,7 +57,6 @@ class SubscriptionDetails extends Component {
 
           <p> First Billing Date: {firstBill}</p>
           { this.findNextBill() }
-          <p> Notification Date: {notificationDate}</p>
           <p> Billing Cycle: {subscription.billingCycle}</p>
         </div>
 
