@@ -4,11 +4,16 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
 // Components
 import App from './App';
-import Home from './components/Home';
+import DashBoard from './components/DashBoard';
 import NotFound from './components/NotFound';
 import Verify from './components/Verify';
 import Form from './components/Form';
+import ChartPage from './components/ChartPage';
+import Home from './components/Home';
 
+
+
+// redo routes so user_id is before dashboard and charts
 
 // Routes
 const routes = (
@@ -16,8 +21,12 @@ const routes = (
     <Route component={App} >
       <Route path="/" component={Verify} />
 
-      <Route path="home/:user_id" component={Home} >
-        <Route path="form" component={Form} title="Form" />
+      <Route path="home/:user_id" component={Home}>
+        <IndexRedirect to="dashboard" />
+        <Route path="charts" component={ChartPage} />
+        <Route path="dashboard" component={DashBoard} >
+          <Route path="form" component={Form} title="Form" />
+        </Route>
       </Route>
 
       <Route path="*" component={NotFound} />

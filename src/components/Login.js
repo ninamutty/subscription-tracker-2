@@ -35,32 +35,12 @@ class Login extends Component {
       this.setState({userID: decoded.id})
     }).then( () => {
       let userID = this.state.userID
-      browserHistory.push(`home/${userID}`)
+      browserHistory.push(`/home/${userID}/dashboard`)
     }).catch(function(err) {
       console.log(err);
     });
 
   }
-
-  // send get request to find the user once they've logged in
-  // Don't think I'll actually need this until home page
-  // getUser(userID) {
-  //   const BASE_URL = 'http://localhost:8080/'
-  //
-  //   fetch(`${BASE_URL}api/users/${userID}`, {
-  //     accept: 'application/json',
-  //   }).then( (response) => {
-  //     return response.json();
-  //   }).then( (response) => {
-  //     this.setState({user: response.user})
-  //   }).catch(function(err) {
-  //     console.log(err);
-  //   });
-  // }
-
-  // .then( () => {
-  //   this.getUser(this.state.userID)
-  // })
 
 
   render() {

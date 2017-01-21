@@ -34,7 +34,7 @@ class SubscriptionDetails extends Component {
           'Content-Type': 'application/json',
         }
       }).then(() => {
-        let path = `/home/${userID}`;
+        let path = `home/${userID}/dashboard`;
         this.forceUpdate();
         browserHistory.push(path);
       }).catch(function(err) {

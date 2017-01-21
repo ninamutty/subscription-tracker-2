@@ -71,7 +71,7 @@ class Form extends Component {
     }).then((response) => {
         let subscriptionID = response.subscription._id;
         // console.log(subscriptionID);
-        let path = `/home/${userID}`;
+        let path = `home/${userID}/dashboard`;
         browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);
@@ -99,7 +99,7 @@ class Form extends Component {
     }).then((response) => {
       let subscriptionID = response.trial._id;
       // console.log(subscriptionID);
-      let path = `/home/${userID}`;
+      let path = `home/${userID}/dashboard`;
       browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);
