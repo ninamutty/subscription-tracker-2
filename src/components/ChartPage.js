@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import CategoriesChart from './Charts/CategoriesChart';
 
 class ChartPage extends Component {
   constructor(props) {
@@ -33,7 +34,11 @@ class ChartPage extends Component {
       console.log(this.userID);
       return (
         <div className="inner-chart">
-          <h1> rendered ya bish </h1>
+          <h3> Yaaaaassss </h3>
+          <div id="categories-chart-container">
+            <h4> Spending By Category </h4>
+            <CategoriesChart subscriptions={this.state.user.subscriptions}/>
+          </div>
         </div>
       )
     }
