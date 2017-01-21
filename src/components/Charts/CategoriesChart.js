@@ -17,25 +17,43 @@ class CategoriesChart extends Component {
         categoryCount[subscription.category] += 1;
       }
     });
-    console.log(categoryCount);
+    return categoryCount;
+    // console.log(categoryCount);
   }
 
 
 	render () {
-    console.log(this.subscriptions);
-    this.categoryData();
-    const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-                      {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
+    // console.log(this.subscriptions);
+    let categories = this.categoryData();
+    let totalNum = this.subscriptions.length;
+    let i = 0;
+    let data = [];
+
+    for (var key in categories) {
+      if (categories.hasOwnProperty(key)) {
+        let dataCell = {
+          name: key,
+          value: categories[key],
+          index: i
+        }
+        data.push(dataCell);
+        i++;
+      }
+    }
+
+    // const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
+                      // {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     const RADIAN = Math.PI / 180;
-    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }) => {
       const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
       const x  = cx + radius * Math.cos(-midAngle * RADIAN);
       const y = cy  + radius * Math.sin(-midAngle * RADIAN);
 
       return (
         <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
+          { name + ":  " }
           {`${(percent * 100).toFixed(0)}%`}
         </text>
       );
