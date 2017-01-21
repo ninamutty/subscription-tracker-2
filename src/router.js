@@ -25,7 +25,7 @@ const routes = (
         <IndexRedirect to="dashboard" />
         <Route path="charts" component={ChartPage} />
         <Route path="dashboard" component={DashBoard} >
-          <Route path="form" component={Form} title="Form" />
+          <Route path="form" component={Form} />
         </Route>
       </Route>
 
@@ -35,11 +35,3 @@ const routes = (
 );
 
 export default routes;
-
-// subscriptionList={Home.state.user.subscriptions}
-
-// <IndexRedirect to="subscriptions" />
-// <Route path="subscriptions" component={SubscriptionContainer}  />
-// <Route path="trials" component={TrialContainer} />
-// <Route path=":subscription_id" component={SubscriptionDetails} />
-// </Route>

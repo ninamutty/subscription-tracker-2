@@ -69,9 +69,8 @@ class DashBoard extends Component {
     if (this.state.user.name !== undefined) {
       console.log(this.state.user._id);
       let formPath = `/home/${this.state.user._id}/dashboard/form`;
-      // let chartPath = `home/charts/${this.state.user._id}`;
       return (
-        <div className="inner-home">
+        <div className="inner-dashboard">
           <h1> Welcome, {this.state.user.name} </h1>
           <Link to={formPath} {...this.props}> + Add </Link>
           {this.sendSubscriptions()}

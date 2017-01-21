@@ -6,14 +6,36 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {userID: this.props.params.user_id}
+    this.userID = this.props.params.user_id
+    this.state = {user: {}}
   }
 
   // find user in this file rather than dashboard so the info/id can be passed to either
+  getUser(userID) {
+    const BASE_URL = 'http://localhost:8080/'
+
+    fetch(`${BASE_URL}api/users/${userID}`, {
+      accept: 'application/json',
+    }).then( (response) => {
+      return response.json();
+    }).then( (response) => {
+      this.setState({user: response.user})
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  checkUser() {
+    if (this.state.user.name === undefined) {
+      this.getUser(this.userID)
+    }
+  }
+
+
 
   render() {
-    let chartPath = `/home/${this.state.userID}/charts`;
-    let subscriptionPath = `/home/${this.state.userID}/dashboard`;
+    let chartPath = `/home/${this.userID}/charts`;
+    let subscriptionPath = `/home/${this.userID}/dashboard`;
     return (
       <div>
           <Link to={chartPath} activeClassName="active" > Spending </Link>
