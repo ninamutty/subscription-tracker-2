@@ -1,53 +1,53 @@
 import React, { Component } from 'react';
 import Recharts, { PieChart, Pie, Sector, Cell } from 'recharts';
 
-class CategoriesChart extends Component {
+
+class CategoryClass extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.subscriptions = this.props.subscriptions;
+    this.clickName = this.props.clickName
     this.total = 0;
     this.state = {hover: false, data: {}, enter: {}};
     this.RenderCategoryDetails = this.RenderCategoryDetails.bind(this);
   }
 
   categoryData = () => {
-    let categoryCount = {}
+    console.log("CLICLNAME: " + this.clickName);
+    let categorySubscriptions = {}
     this.subscriptions.map((subscription) => {
       let cost;
       if (subscription.billingCycle == "Weekly") {
+        console.log("weekly");
         cost = subscription.cost * 4;
       } else if (subscription.billingCycle == "Yearly") {
+        console.log("yearly");
+
         cost = subscription.cost / 12;
       } else if (subscription.billingCycle == "Monthly") {
+        console.log("monthly");
         cost = subscription.cost
       }
 
-      if (categoryCount[subscription.category] === undefined) {
-        categoryCount[subscription.category] = cost;
-        this.total += cost;
-      } else {
-        categoryCount[subscription.category] += cost;
-        this.total += cost;
+      console.log(subscription.category);
+      if (subscription.category == this.clickName) {
+        console.log("yay we have a match!");
+        if (categorySubscriptions[subscription.name] === undefined) {
+          categorySubscriptions[subscription.name] = cost;
+          this.total += cost;
+        } else {
+          categorySubscriptions[subscription.name] += cost;
+          this.total += cost;
+        }
       }
     });
-    return categoryCount;
+    return categorySubscriptions;
   }
 
   RenderCategoryDetails = () => {
-    // console.log("RenderCategoryDetails");
     if (this.state.hover == true) {
-      // console.log("In here woooo");
-
-      // console.log(this.total);
-      // console.log(this.state.enter.value);
-      // console.log((this.state.enter.value/this.total) * 100);
-
-
       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(0)}%`
       let money = `$${this.state.enter.value/100.00}`
-
-      // console.log(percent);
-      // console.log(money);
 
       return (
         <div className="small-chart-modal-container">
@@ -63,7 +63,6 @@ class CategoriesChart extends Component {
     // console.log("MOUSE ENTER");
     this.total = 0;
     this.setState({hover: true, data: data, enter: enter});
-    // console.log(this.state.hover);
   }
 
   MouseLeaves = () => {
@@ -73,8 +72,7 @@ class CategoriesChart extends Component {
     // console.log(this.state.hover);
   }
 
-
-	render () {
+  render () {
     let categories = this.categoryData();
     let totalNum = this.subscriptions.length;
     let i = 0;
@@ -109,7 +107,7 @@ class CategoriesChart extends Component {
     };
 
   	return (
-      <div className="big-div-categories-chart">
+      <div className="big-div-one-category-chart">
         {this.RenderCategoryDetails()}
     	  <PieChart width={500} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
          <Pie
@@ -123,7 +121,6 @@ class CategoriesChart extends Component {
             fill="#8884d8"
             onMouseEnter={this.MouseEnters.bind(this, data)}
             onMouseLeave={this.MouseLeaves.bind(this)}
-            onClick={this.props.onClick.bind(this, data)}
           >
       	    {
         	    data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
@@ -135,5 +132,4 @@ class CategoriesChart extends Component {
   }
 }
 
-
-export default CategoriesChart;
+export default CategoryClass;
