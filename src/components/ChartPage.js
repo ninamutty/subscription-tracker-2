@@ -34,9 +34,8 @@ class ChartPage extends Component {
       console.log(this.userID);
       return (
         <div className="inner-chart">
-          <h3> Yaaaaassss </h3>
           <div id="categories-chart-container">
-            <h4> Spending By Category </h4>
+            <h4> Monthly Spending By Category </h4>
             <CategoriesChart subscriptions={this.state.user.subscriptions}/>
           </div>
         </div>

@@ -44,13 +44,14 @@ body {
   padding: 2%;
   display: inline-block;
   background-color: white;
-  text-align: center;
 }
 
 .piechart-container, #categories-chart-container {
   border: 1px solid black;
+  text-align: center;
 }
 
+.big-div-categories-chart {border: 1px solid red; padding: 2%;}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
