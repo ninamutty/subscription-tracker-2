@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .header {
@@ -41,9 +41,11 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 2%;
+  padding: 1%;
   display: inline-block;
   background-color: white;
+  postion: relative;
+  margin: 5% 0 5% 3%;
 }
 
 .piechart-container, #categories-chart-container {
@@ -52,6 +54,24 @@ body {
 }
 
 .big-div-categories-chart {border: 1px solid red; padding: 2%;}
+
+.small-chart-modal-container {
+  display: inline-block;
+  position: fixed;
+  left: 40%;
+  top: 20%;
+  border: 1px solid blue;
+  background-color: white;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
