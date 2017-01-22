@@ -15,17 +15,19 @@ class CategoriesChart extends Component {
     let categoryCount = {}
     this.subscriptions.map((subscription) => {
       if (categoryCount[subscription.category] === undefined) {
-        // add in Weekly and and yearly adjustments
-        categoryCount[subscription.category] = subscription.cost;
 
+        //////////////////////////////////////////////
+        // add in Weekly and and yearly adjustments //
+        //////////////////////////////////////////////
+
+        categoryCount[subscription.category] = subscription.cost;
+        this.total += subscription.cost;
       } else {
         categoryCount[subscription.category] += subscription.cost;
-
+        this.total += subscription.cost;
       }
-      this.total += subscription.cost;
     });
     return categoryCount;
-    // console.log(categoryCount);
   }
 
   RenderCategoryDetails = () => {
@@ -33,11 +35,17 @@ class CategoriesChart extends Component {
     if (this.state.hover == true) {
       console.log("In here woooo");
 
+      console.log(this.total);
+      console.log(this.state.enter.value);
+      console.log((this.state.enter.value/this.total) * 100);
+
+
       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(0)}%`
       let money = `$${this.state.enter.value/100.00}`
 
       console.log(percent);
       console.log(money);
+
       return (
         <div className="small-chart-modal-container">
           <h3> {this.state.enter.name} </h3>
@@ -50,35 +58,20 @@ class CategoriesChart extends Component {
 
   MouseEnters = (data, enter) => {
     console.log("MOUSE ENTER");
-    // console.log(data);
-    // console.log(enter.name);
-    // console.log(enter.value);
-
+    this.total = 0;
     this.setState({hover: true, data: data, enter: enter});
     console.log(this.state.hover);
-
-    // return this.RenderCategoryDetails(data, enter);
-    // let percent = `${((enter.value/this.total) * 100).toFixed(0)}}%`
-    // let money = `${enter.value/100.00}`
-    //
-    // return (
-    //   <div>
-    //     <h3> {enter.value} </h3>
-    //     <p> Monthly Spending: {money} </p>
-    //     <p> Percentage of Total Monthy Spending: {percent} </p>
-    //   </div>
-    // )
   }
 
   MouseLeaves = () => {
     console.log("MOUSE LEAVE");
+    this.total = 0;
     this.setState({hover: false, data: {}, enter: {}});
     console.log(this.state.hover);
   }
 
 
 	render () {
-    // console.log(this.subscriptions);
     let categories = this.categoryData();
     let totalNum = this.subscriptions.length;
     let i = 0;
@@ -96,8 +89,6 @@ class CategoriesChart extends Component {
       }
     }
 
-    // const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-                      // {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     const RADIAN = Math.PI / 180;
@@ -107,12 +98,6 @@ class CategoriesChart extends Component {
       const x  = cx + radius * Math.cos(-midAngle * RADIAN);
       const y = cy  + radius * Math.sin(-midAngle * RADIAN);
 
-// textAnchor={x > cx ? 'start' : 'end'}
-
-// <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
-//   { name + ":  " }
-//   {`${(percent * 100).toFixed(0)}%`}
-// </text>
       return (
         <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
           { name }
@@ -120,33 +105,27 @@ class CategoriesChart extends Component {
       );
     };
 
-    // const clickPieSlice = () => {
-    //   return (
-    //     console.log("CLICK!")
-    //   )
-    // }
-
   	return (
       <div className="big-div-categories-chart">
-      {this.RenderCategoryDetails()}
-    	<PieChart width={700} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
-        <Pie
-          data={data}
-          cx={350}
-          cy={200}
-          labelLine={true}
-          label={renderCustomizedLabel}
-          outerRadius={120}
-          fill="#8884d8"
-          onClick={clickPieSlice}
-          onMouseEnter={this.MouseEnters.bind(this, data)}
-          onMouseLeave={this.MouseLeaves.bind(this)}
-        >
-        	{
-          	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-          }
-        </Pie>
-      </PieChart>
+        {this.RenderCategoryDetails()}
+    	  <PieChart width={500} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
+         <Pie
+            isAnimationActive={false}
+            data={data}
+            cx={250}
+            cy={200}
+            labelLine={true}
+            label={renderCustomizedLabel}
+            outerRadius={120}
+            fill="#8884d8"
+            onMouseEnter={this.MouseEnters.bind(this, data)}
+            onMouseLeave={this.MouseLeaves.bind(this)}
+          >
+      	    {
+        	    data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            }
+          </Pie>
+        </PieChart>
       </div>
     );
   }

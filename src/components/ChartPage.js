@@ -33,11 +33,9 @@ class ChartPage extends Component {
     if (this.state.user.name !== undefined) {
       console.log(this.userID);
       return (
-        <div className="inner-chart">
-          <div id="categories-chart-container">
-            <h4> Monthly Spending By Category </h4>
-            <CategoriesChart subscriptions={this.state.user.subscriptions}/>
-          </div>
+        <div id="categories-chart-container">
+          <h4> Monthly Spending By Category </h4>
+          <CategoriesChart subscriptions={this.state.user.subscriptions}/>
         </div>
       )
     }
@@ -49,7 +47,6 @@ class ChartPage extends Component {
     this.checkUser()
     return(
       <div className="main-chart-container">
-        <h1> Chart Page </h1>
         {this.renderUser()}
       </div>
     )
