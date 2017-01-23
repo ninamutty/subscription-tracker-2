@@ -9,7 +9,7 @@ class ChartPage extends Component {
   constructor(props) {
     super(props);
     this.userID = props.params.user_id;
-    this.state = {user: {}, categorySelected: false, clickName: '', data: [], selectedSubscription: {}};
+    this.state = {user: {}, categorySelected: false, clickName: '', data: [], selectedSubscription: {}, eventStuff: {}};
   }
 
   getUser(userID) {
@@ -33,16 +33,14 @@ class ChartPage extends Component {
   }
 
   selectCategory = (data, event) => {
-    // console.log("selectCategory");
-    // console.log(this);
     // console.log(event.name);
-    // console.log(data);
     this.setState({categorySelected: true, data: data, clickName: event.name})
   }
 
   renderACategory = () => {
     if (this.state.categorySelected == true) {
       // console.log("selected");
+      console.log(this.state.clickName);
       return (
         <div id="categories-chart-container">
           <h4> Monthly Spending In {this.state.clickName} </h4>
@@ -53,27 +51,27 @@ class ChartPage extends Component {
   }
 
   clickSubscription = (data, event) => {
-    // console.log("clickSubscription");
-    // console.log(this);
-    // console.log(event.name);
-    // console.log(data);
     data.map((subscription) => {
-      console.log(">>>>>>>>>");
-      console.log(subscription.name);
-      console.log(event.name);
-      console.log(subscription.name == event.name);
-      console.log(">>>>>>>>>");
+      // console.log(">>>>>>>>>");
+      // console.log(subscription.name);
+      // console.log(event.name);
+      // console.log(subscription.name == event.name);
+      // console.log(">>>>>>>>>");
+
       if (subscription.name == event.name) {
-        console.log("here here here");
-        this.setState({selectedSubscription: subscription})
+        this.setState({selectedSubscription: subscription, eventStuff: event})
+        // console.log("here here here");
+        // console.log(this.state.selectedSubscription);
       }
     })
   }
 
-  renderSelectedSubscription = (data, event) => {
-    console.log(this.state.selectedSubscription);
+  renderSelectedSubscription = () => {
+    // console.log(this.state.selectedSubscription.name);
+    // console.log(this.state.eventStuff.name);
     if (this.state.selectedSubscription.name !== undefined) {
       console.log("in here woo");
+      console.log(this.state.selectedSubscription);
       return (
         <div id="selected-subscription-details">
           <SubscriptionChartDetails subscription={this.state.selectedSubscription} subscriptionList={this.state.user.subscriptions} />

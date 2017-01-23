@@ -35,11 +35,6 @@ class CategoriesChart extends Component {
 
   RenderCategoryDetails = () => {
     if (this.state.hover == true) {
-      // console.log(this.total);
-      // console.log(this.state.enter.value);
-      // console.log((this.state.enter.value/this.total) * 100);
-
-
       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
 
@@ -86,7 +81,7 @@ class CategoriesChart extends Component {
       }
     }
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const COLORS = ['#65334E', '#AA77AA', '#F8C3B1', '#B3CADA', '#D169A4'];
 
     const RADIAN = Math.PI / 180;
 

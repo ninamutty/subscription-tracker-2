@@ -13,24 +13,18 @@ class CategoryClass extends Component {
   }
 
   categoryData = () => {
-    // console.log("CLICLNAME: " + this.clickName);
     let categorySubscriptions = {}
     this.subscriptions.map((subscription) => {
       let cost;
       if (subscription.billingCycle == "Weekly") {
-        // console.log("weekly");
         cost = subscription.cost * 4;
       } else if (subscription.billingCycle == "Yearly") {
-        // console.log("yearly");
-
         cost = subscription.cost / 12;
       } else if (subscription.billingCycle == "Monthly") {
-        // console.log("monthly");
         cost = subscription.cost
       }
 
-      if (subscription.category == this.clickName) {
-        // console.log("yay we have a match!");
+      if (subscription.category == this.props.clickName) {
         if (categorySubscriptions[subscription.name] === undefined) {
           categorySubscriptions[subscription.name] = cost;
           this.total += cost;
@@ -46,11 +40,6 @@ class CategoryClass extends Component {
   RenderCategoryDetails = () => {
     if (this.state.hover == true) {
       let percent = `${((this.state.enter.value/this.total) * 100.00).toFixed(2)}%`
-      //       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(0)}%`
-
-      // console.log(this.state.enter.value);
-      // console.log(this.state.enter.value/100.00);
-
       let money = `$${this.state.enter.value/100.00}`
 
       return (
@@ -64,16 +53,13 @@ class CategoryClass extends Component {
   }
 
   MouseEnters = (data, enter) => {
-    // console.log("MOUSE ENTER");
     this.total = 0;
     this.setState({hover: true, data: data, enter: enter});
   }
 
   MouseLeaves = () => {
-    // console.log("MOUSE LEAVE");
     this.total = 0;
     this.setState({hover: false, data: {}, enter: {}});
-    // console.log(this.state.hover);
   }
 
   render () {

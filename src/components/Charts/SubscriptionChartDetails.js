@@ -8,19 +8,13 @@ class SubscriptionDetails extends Component {
     super(props);
     this.selectedSubscription = {};
     this.state = {dataSubscription: this.props.subscription, subscriptionList: this.props.subscriptionList}
-    // this.deleteSubscription = this.deleteSubscription.bind(this)
   }
 
   renderSubscription() {
-    console.log(this.selectedSubscription.name);
-    if (this.selectedSubscription.name === undefined) {
-      console.log("*************");
-      console.log(this.state.subscriptionList);
-      console.log(this.state.dataSubscription);
-      console.log("*************");
+    if (this.selectedSubscription.name !== this.props.subscription.name) {
 
       this.state.subscriptionList.map((subscription) => {
-        if (this.state.dataSubscription.name == subscription.name) {
+        if (this.props.subscription.name == subscription.name) {
           this.selectedSubscription = subscription;
         }
       })
@@ -43,8 +37,6 @@ class SubscriptionDetails extends Component {
   }
 
   render() {
-    // console.log(this.s.subscription);
-    console.log("rendering subscription detail");
     return (
       <div className="chartpage-subscription-details">
         {this.renderSubscription()}
