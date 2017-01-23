@@ -9,7 +9,7 @@ class ChartPage extends Component {
   constructor(props) {
     super(props);
     this.userID = props.params.user_id;
-    this.state = {user: {}, categorySelected: false, clickName: '', data: [], selectedSubscription: {}, eventStuff: {}};
+    this.state = {user: {}, categorySelected: false, clickName: '', data: [], selectedSubscription: {}, eventStuff: {}, totalSpend: 0};
   }
 
   getUser(userID) {
@@ -33,18 +33,19 @@ class ChartPage extends Component {
   }
 
   selectCategory = (data, event) => {
-    // console.log(event.name);
-    this.setState({categorySelected: true, data: data, clickName: event.name})
+    // console.log(data);
+    // console.log(event.total);
+
+    this.setState({categorySelected: true, data: data, clickName: event.name, totalSpend: event.total})
   }
 
   renderACategory = () => {
     if (this.state.categorySelected == true) {
-      // console.log("selected");
-      console.log(this.state.clickName);
+      console.log("SPEND STATE: "+this.state.totalSpend);
       return (
         <div id="categories-chart-container">
           <h4> Monthly Spending In {this.state.clickName} </h4>
-          <CategoryChart clickName={this.state.clickName} data={this.state.data} subscriptions={this.state.user.subscriptions} onClick={this.clickSubscription}/>
+          <CategoryChart clickName={this.state.clickName} data={this.state.data} subscriptions={this.state.user.subscriptions} onClick={this.clickSubscription} totalSpend={this.state.totalSpend}/>
         </div>
       )
     }
@@ -52,26 +53,14 @@ class ChartPage extends Component {
 
   clickSubscription = (data, event) => {
     data.map((subscription) => {
-      // console.log(">>>>>>>>>");
-      // console.log(subscription.name);
-      // console.log(event.name);
-      // console.log(subscription.name == event.name);
-      // console.log(">>>>>>>>>");
-
       if (subscription.name == event.name) {
         this.setState({selectedSubscription: subscription, eventStuff: event})
-        // console.log("here here here");
-        // console.log(this.state.selectedSubscription);
       }
     })
   }
 
   renderSelectedSubscription = () => {
-    // console.log(this.state.selectedSubscription.name);
-    // console.log(this.state.eventStuff.name);
     if (this.state.selectedSubscription.name !== undefined) {
-      console.log("in here woo");
-      console.log(this.state.selectedSubscription);
       return (
         <div id="selected-subscription-details">
           <SubscriptionChartDetails subscription={this.state.selectedSubscription} subscriptionList={this.state.user.subscriptions} />
@@ -82,7 +71,6 @@ class ChartPage extends Component {
 
   renderCategoriesChart = () => {
     if (this.state.user.name !== undefined) {
-      // console.log(this.userID);
       return (
         <div id="categories-chart-container">
           <h4> Monthly Spending By Category </h4>

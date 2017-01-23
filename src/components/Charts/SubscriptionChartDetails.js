@@ -11,7 +11,8 @@ class SubscriptionDetails extends Component {
   }
 
   renderSubscription() {
-    if (this.selectedSubscription.name !== this.props.subscription.name) {
+    // if (this.selectedSubscription.name !== this.props.subscription.name) {
+    if (this.props.subscription.name !== undefined) {
 
       this.state.subscriptionList.map((subscription) => {
         if (this.props.subscription.name == subscription.name) {

@@ -38,6 +38,7 @@ class CategoriesChart extends Component {
       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
 
+      this.total = 0;
       return (
         <div className="small-chart-modal-container">
           <h3> {this.state.enter.name} </h3>
@@ -49,17 +50,13 @@ class CategoriesChart extends Component {
   }
 
   MouseEnters = (data, enter) => {
-    // console.log("MOUSE ENTER");
     this.total = 0;
     this.setState({hover: true, data: data, enter: enter});
-    // console.log(this.state.hover);
   }
 
   MouseLeaves = () => {
-    // console.log("MOUSE LEAVE");
     this.total = 0;
     this.setState({hover: false, data: {}, enter: {}});
-    // console.log(this.state.hover);
   }
 
 
@@ -69,12 +66,14 @@ class CategoriesChart extends Component {
     let i = 0;
     let data = [];
 
-    for (var key in categories) {
-      if (categories.hasOwnProperty(key)) {
+    for (var categoryKey in categories) {
+      if (categories.hasOwnProperty(categoryKey)) {
         let dataCell = {
-          name: key,
-          value: categories[key],
-          index: i
+          name: categoryKey,
+          value: categories[categoryKey],
+          index: i,
+          key: i,
+          total: this.total
         }
         data.push(dataCell);
         i++;
@@ -115,7 +114,7 @@ class CategoriesChart extends Component {
             onClick={this.props.onClick.bind(this, data)}
           >
       	    {
-        	    data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+        	    data.map((entry, index, key) => <Cell fill={COLORS[index % COLORS.length]} key={key}/>)
             }
           </Pie>
         </PieChart>

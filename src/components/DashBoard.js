@@ -41,12 +41,6 @@ class DashBoard extends Component {
     this.props.setSelectState(id)
   }
 
-  // removeSelectState = () => {
-  //   if (this.state.showDetails = true) {
-  //     return this.setState({showDetails: false, subscriptionID: ''});
-  //   }
-  // }
-
   setSelectState = (id) => {
     this.setState({showDetails: false, subscriptionID: ''});
     return this.setState({showDetails: true, subscriptionID: id});
@@ -103,7 +97,6 @@ class DashBoard extends Component {
         }
       }
 
-      // console.log("after call getuser");
 
       let formPath = `/home/${this.state.user._id}/dashboard/form`;
       return (
@@ -119,8 +112,6 @@ class DashBoard extends Component {
       )
     }
   }
-
-
 
 
   render() {

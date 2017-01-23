@@ -6,8 +6,9 @@ class CategoryClass extends Component {
   constructor(props) {
     super(props)
     this.subscriptions = this.props.subscriptions;
-    this.clickName = this.props.clickName
+    this.clickName = this.props.clickName;
     this.total = 0;
+    this.categoryTotal = 0;
     this.state = {hover: false, data: {}, enter: {}};
     this.RenderCategoryDetails = this.RenderCategoryDetails.bind(this);
   }
@@ -27,10 +28,10 @@ class CategoryClass extends Component {
       if (subscription.category == this.props.clickName) {
         if (categorySubscriptions[subscription.name] === undefined) {
           categorySubscriptions[subscription.name] = cost;
-          this.total += cost;
+          this.categoryTotal += cost;
         } else {
           categorySubscriptions[subscription.name] += cost;
-          this.total += cost;
+          this.categoryTotal += cost;
         }
       }
     });
@@ -39,14 +40,17 @@ class CategoryClass extends Component {
 
   RenderCategoryDetails = () => {
     if (this.state.hover == true) {
-      let percent = `${((this.state.enter.value/this.total) * 100.00).toFixed(2)}%`
+      let categoryPercent = `${((this.state.enter.value/this.categoryTotal) * 100.00).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
+      let totalPercent = `${((this.state.enter.value/this.props.totalSpend) * 100.00).toFixed(2)}%`
 
+      this.categoryTotal = 0;
       return (
         <div className="small-chart-modal-container">
           <h3> {this.state.enter.name} </h3>
           <p> Monthly Spending: {money} </p>
-          <p> Percentage of Total Monthy Spending: {percent} </p>
+          <p> Percentage of Monthy Spending in {this.clickName}: {categoryPercent} </p>
+          <p> Percentage of Total Monthly Spending: {totalPercent} </p>
         </div>
       )
     }
@@ -68,12 +72,13 @@ class CategoryClass extends Component {
     let i = 0;
     let data = [];
 
-    for (var key in categories) {
-      if (categories.hasOwnProperty(key)) {
+    for (var categoriesKey in categories) {
+      if (categories.hasOwnProperty(categoriesKey)) {
         let dataCell = {
-          name: key,
-          value: categories[key],
-          index: i
+          name: categoriesKey,
+          value: categories[categoriesKey],
+          index: i,
+          key: i
         }
         data.push(dataCell);
         i++;
@@ -114,7 +119,7 @@ class CategoryClass extends Component {
             onClick={this.props.onClick.bind(this, data)}
           >
       	    {
-        	    data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+        	    data.map((entry, index, key) => <Cell fill={COLORS[index % COLORS.length]} key={key}/>)
             }
           </Pie>
         </PieChart>
