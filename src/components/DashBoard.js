@@ -75,9 +75,6 @@ class DashBoard extends Component {
 
   renderUser() {
     if (this.state.user.name !== undefined) {
-
-      // console.log(this.props.location.state);
-      // console.log("PROPS LOCATION");
       if (this.props.location.state !== undefined && this.props.location.state.newSubscriptionID !== undefined) {
         let arrayOfIDs = [];
         this.state.user.subscriptions.map((subscription) => {
@@ -86,25 +83,25 @@ class DashBoard extends Component {
         this.state.user.trials.map((trial) => {
           arrayOfIDs.push(trial._id);
         })
-
-        // console.log(this.props.location.state);
-        // console.log(arrayOfIDs);
-        // console.log(this.props.location.state.newSubscriptionID);
-        //
-        // console.log(!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) );
-
         if (!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) ) {
-        // console.log("*****************");
-        // console.log(this.props.location.state.newSubscriptionID);
-        // console.log("call getuser");
-        // console.log("*****************");
          this.getUser(this.userID);
         }
       }
-        // this.props.location.state === undefined
 
+      if (this.props.location.state !== undefined && this.props.location.state.deletedSubscriptionID !== undefined) {
+        let arrayOfIDs = [];
+        this.state.user.subscriptions.map((subscription) => {
+          arrayOfIDs.push(subscription._id);
+        })
+        this.state.user.trials.map((trial) => {
+          arrayOfIDs.push(trial._id);
+        })
+        if (arrayOfIDs.includes(this.props.location.state.deletedSubscriptionID) ) {
+         this.getUser(this.userID);
+        }
+      }
 
-      console.log("after call getuser");
+      // console.log("after call getuser");
 
       let formPath = `/home/${this.state.user._id}/dashboard/form`;
       return (

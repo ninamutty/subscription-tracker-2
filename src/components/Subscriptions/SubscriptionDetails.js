@@ -34,8 +34,14 @@ class SubscriptionDetails extends Component {
           'Content-Type': 'application/json',
         }
       }).then(() => {
+        let deletedSubscriptionID = subscriptionID
+
         let path = `/home/${userID}/dashboard`;
-        browserHistory.push(path);
+        this.setState({subscription: {}});
+        browserHistory.push({
+          pathname: path,
+          state: {deletedSubscriptionID: deletedSubscriptionID}
+        });
       }).catch(function(err) {
         console.log(err);
       });
