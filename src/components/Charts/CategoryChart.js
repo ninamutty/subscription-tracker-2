@@ -13,25 +13,24 @@ class CategoryClass extends Component {
   }
 
   categoryData = () => {
-    console.log("CLICLNAME: " + this.clickName);
+    // console.log("CLICLNAME: " + this.clickName);
     let categorySubscriptions = {}
     this.subscriptions.map((subscription) => {
       let cost;
       if (subscription.billingCycle == "Weekly") {
-        console.log("weekly");
+        // console.log("weekly");
         cost = subscription.cost * 4;
       } else if (subscription.billingCycle == "Yearly") {
-        console.log("yearly");
+        // console.log("yearly");
 
         cost = subscription.cost / 12;
       } else if (subscription.billingCycle == "Monthly") {
-        console.log("monthly");
+        // console.log("monthly");
         cost = subscription.cost
       }
 
-      console.log(subscription.category);
       if (subscription.category == this.clickName) {
-        console.log("yay we have a match!");
+        // console.log("yay we have a match!");
         if (categorySubscriptions[subscription.name] === undefined) {
           categorySubscriptions[subscription.name] = cost;
           this.total += cost;
@@ -46,7 +45,12 @@ class CategoryClass extends Component {
 
   RenderCategoryDetails = () => {
     if (this.state.hover == true) {
-      let percent = `${((this.state.enter.value/this.total) * 100).toFixed(0)}%`
+      let percent = `${((this.state.enter.value/this.total) * 100.00).toFixed(2)}%`
+      //       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(0)}%`
+
+      // console.log(this.state.enter.value);
+      // console.log(this.state.enter.value/100.00);
+
       let money = `$${this.state.enter.value/100.00}`
 
       return (
@@ -95,7 +99,7 @@ class CategoryClass extends Component {
     const RADIAN = Math.PI / 180;
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name, value }) => {
-      const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+      const radius = innerRadius + (outerRadius - innerRadius) * 1.25;
       const x  = cx + radius * Math.cos(-midAngle * RADIAN);
       const y = cy  + radius * Math.sin(-midAngle * RADIAN);
 
@@ -109,11 +113,11 @@ class CategoryClass extends Component {
   	return (
       <div className="big-div-one-category-chart">
         {this.RenderCategoryDetails()}
-    	  <PieChart width={500} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
+    	  <PieChart width={400} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
          <Pie
             isAnimationActive={false}
             data={data}
-            cx={250}
+            cx={200}
             cy={200}
             labelLine={true}
             label={renderCustomizedLabel}
@@ -121,6 +125,7 @@ class CategoryClass extends Component {
             fill="#8884d8"
             onMouseEnter={this.MouseEnters.bind(this, data)}
             onMouseLeave={this.MouseLeaves.bind(this)}
+            onClick={this.props.onClick.bind(this, data)}
           >
       	    {
         	    data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)

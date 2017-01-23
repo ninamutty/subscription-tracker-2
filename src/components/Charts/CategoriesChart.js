@@ -43,7 +43,7 @@ class CategoriesChart extends Component {
       // console.log((this.state.enter.value/this.total) * 100);
 
 
-      let percent = `${((this.state.enter.value/this.total) * 100).toFixed(0)}%`
+      let percent = `${((this.state.enter.value/this.total) * 100).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
 
       // console.log(percent);
@@ -97,7 +97,7 @@ class CategoriesChart extends Component {
     const RADIAN = Math.PI / 180;
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name, value }) => {
-      const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+      const radius = innerRadius + (outerRadius - innerRadius) * 1.25;
       const x  = cx + radius * Math.cos(-midAngle * RADIAN);
       const y = cy  + radius * Math.sin(-midAngle * RADIAN);
 
