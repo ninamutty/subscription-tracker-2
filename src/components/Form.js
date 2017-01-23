@@ -134,7 +134,7 @@ class Form extends Component {
 
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
 
     let user_id = this.props.params.user_id
     return (

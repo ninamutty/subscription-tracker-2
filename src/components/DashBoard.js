@@ -24,7 +24,7 @@ class DashBoard extends Component {
     }).then( (response) => {
       return response.json();
     }).then( (response) => {
-      this.setState({user: response.user})
+      this.setState({user: response.user, showDetails: false})
     }).catch(function(err) {
       console.log(err);
     });
@@ -41,6 +41,12 @@ class DashBoard extends Component {
     this.props.setSelectState(id)
   }
 
+  // removeSelectState = () => {
+  //   if (this.state.showDetails = true) {
+  //     return this.setState({showDetails: false, subscriptionID: ''});
+  //   }
+  // }
+
   setSelectState = (id) => {
     this.setState({showDetails: false, subscriptionID: ''});
     return this.setState({showDetails: true, subscriptionID: id});
@@ -48,7 +54,11 @@ class DashBoard extends Component {
 
   showDetails = () => {
     if (this.state.showDetails === true) {
+      // console.log(this.props.location.deleteSubscriptionID);
+      // console.log(this.state.subscriptionID);
       return  <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} userID={this.userID}/>
+    } else {
+      return (<div></div>);
     }
   }
 
@@ -63,15 +73,6 @@ class DashBoard extends Component {
       return <TrialContainer trials={this.state.user.trials} onClick={this.selectSubscription} setSelectState={this.setSelectState} />
     }
   }
-
-  // formSubmit() {
-  //   console.log("Hello");
-  //   console.log(">>>>>>>>>>");
-  //   console.log(this.props.location);
-  //   console.log(">>>>>>>>>>");
-  //
-  // }
-
 
   renderUser() {
     if (this.state.user.name !== undefined) {
@@ -97,7 +98,8 @@ class DashBoard extends Component {
           arrayOfIDs.push(trial._id);
         })
         if (arrayOfIDs.includes(this.props.location.state.deletedSubscriptionID) ) {
-         this.getUser(this.userID);
+          // this.removeSelectState();
+          this.getUser(this.userID);
         }
       }
 

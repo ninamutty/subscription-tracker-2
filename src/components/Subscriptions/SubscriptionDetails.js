@@ -76,7 +76,7 @@ class SubscriptionDetails extends Component {
   }
 
   renderSubscription() {
-    console.log(this.state.subscription);
+    // console.log(this.state.subscription);
     if (this.state.subscription.name !== undefined) {
       let subscription = this.state.subscription
       let firstBill = moment(new Date(subscription.firstBillDate)).format("dddd, MMMM Do YYYY")
@@ -97,6 +97,8 @@ class SubscriptionDetails extends Component {
         </div>
 
       );
+    } else {
+      return (<div></div>);
     }
   }
 
