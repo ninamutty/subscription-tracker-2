@@ -6,64 +6,47 @@ import moment from 'moment';
 class SubscriptionDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {subscription: this.props.subscription}
+    this.selectedSubscription = {};
+    this.state = {dataSubscription: this.props.subscription, subscriptionList: this.props.subscriptionList}
     // this.deleteSubscription = this.deleteSubscription.bind(this)
   }
 
-  // deleteSubscription(event) {
-  //   event.preventDefault();
-  //   const BASE_URL = 'http://localhost:8080/'
-  //   let userID = this.props.userID;
-  //   let subscriptionID = this.props.subscriptionID;
-  //   let type;
-  //
-  //   if (window.confirm("Are you sure?")) {
-  //     fetch(`${BASE_URL}api/users/${userID}/subscriptions/${subscriptionID}`, {
-  //       method: 'DELETE',
-  //       headers: {
-  //         'Accept': 'application/json',
-  //         'Content-Type': 'application/json',
-  //       }
-  //     }).then(() => {
-  //       let path = `/home/${userID}/dashboard`;
-  //       this.forceUpdate();
-  //       browserHistory.push(path);
-  //     }).catch(function(err) {
-  //       console.log(err);
-  //     });
-  //   };
-  // }
-
-
   renderSubscription() {
-    console.log("*************");
-    console.log(this.state.subscription);
-    if (this.state.subscription.name !== undefined) {
-      let subscription = this.state.subscription
-      let firstBill = moment(new Date(subscription.firstBillDate)).format("dddd, MMMM Do YYYY")
-      let nextBill = moment(new Date(this.state.subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
-      let notificationDate = moment(new Date(subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+    console.log(this.selectedSubscription.name);
+    if (this.selectedSubscription.name === undefined) {
+      console.log("*************");
+      console.log(this.state.subscriptionList);
+      console.log(this.state.dataSubscription);
+      console.log("*************");
+
+      this.state.subscriptionList.map((subscription) => {
+        if (this.state.dataSubscription.name == subscription.name) {
+          this.selectedSubscription = subscription;
+        }
+      })
+
+      let firstBill = moment(new Date(this.selectedSubscription.firstBillDate)).format("dddd, MMMM Do YYYY")
+      let nextBill = moment(new Date(this.selectedSubscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
 
       return (
-        <div className="chartpage-subscription-details">
-          <h2>{subscription.name}</h2>
-          <p> Price: ${subscription.cost/100.00}</p>
-          <p> Category: {subscription.category}</p>
-          <p> Your Rating: {subscription.userRating}</p>
+        <div>
+          <h2>{this.selectedSubscription.name}</h2>
+          <p> Price: ${this.selectedSubscription.cost/100.00}</p>
+          <p> Category: {this.selectedSubscription.category}</p>
+          <p> Your Rating: {this.selectedSubscription.userRating}</p>
           <p> First Billing Date: {firstBill}</p>
-          <p>Next Billing Date: {nextBill} </p>
-          <p> Billing Cycle: {subscription.billingCycle}</p>
+          <p> Next Billing Date: {nextBill} </p>
+          <p> Billing Cycle: {this.selectedSubscription.billingCycle}</p>
         </div>
-
       );
     }
   }
 
   render() {
-    console.log(this.props.subscription);
+    // console.log(this.s.subscription);
     console.log("rendering subscription detail");
     return (
-      <div>
+      <div className="chartpage-subscription-details">
         {this.renderSubscription()}
       </div>
 

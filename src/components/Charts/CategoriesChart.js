@@ -34,10 +34,7 @@ class CategoriesChart extends Component {
   }
 
   RenderCategoryDetails = () => {
-    // console.log("RenderCategoryDetails");
     if (this.state.hover == true) {
-      // console.log("In here woooo");
-
       // console.log(this.total);
       // console.log(this.state.enter.value);
       // console.log((this.state.enter.value/this.total) * 100);
@@ -45,9 +42,6 @@ class CategoriesChart extends Component {
 
       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
-
-      // console.log(percent);
-      // console.log(money);
 
       return (
         <div className="small-chart-modal-container">

@@ -67,10 +67,13 @@ body {
   z-index: 1;
 }
 
-
-
-
-
+#selected-subscription-details {
+  width: 23%;
+  vertical-align: top;
+  margin-top: 10%;
+  display: inline-block;
+  margin-left: 1%;
+}
 
 
 

@@ -76,7 +76,7 @@ class ChartPage extends Component {
       console.log("in here woo");
       return (
         <div id="selected-subscription-details">
-          <SubscriptionChartDetails subscription={this.state.selectedSubscription} />
+          <SubscriptionChartDetails subscription={this.state.selectedSubscription} subscriptionList={this.state.user.subscriptions} />
         </div>
       )
     }
