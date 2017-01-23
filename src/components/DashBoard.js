@@ -64,15 +64,53 @@ class DashBoard extends Component {
     }
   }
 
+  // formSubmit() {
+  //   console.log("Hello");
+  //   console.log(">>>>>>>>>>");
+  //   console.log(this.props.location);
+  //   console.log(">>>>>>>>>>");
+  //
+  // }
+
 
   renderUser() {
     if (this.state.user.name !== undefined) {
-      console.log(this.state.user._id);
+
+      // console.log(this.props.location.state);
+      // console.log("PROPS LOCATION");
+      if (this.props.location.state !== undefined && this.props.location.state.newSubscriptionID !== undefined) {
+        let arrayOfIDs = [];
+        this.state.user.subscriptions.map((subscription) => {
+          arrayOfIDs.push(subscription._id);
+        })
+        this.state.user.trials.map((trial) => {
+          arrayOfIDs.push(trial._id);
+        })
+
+        console.log(this.props.location.state);
+        console.log(arrayOfIDs);
+        console.log(this.props.location.state.newSubscriptionID);
+
+        console.log(!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) );
+
+        if (!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) ) {
+        console.log("*****************");
+        console.log(this.props.location.state.newSubscriptionID);
+        console.log("call getuser");
+        console.log("*****************");
+         this.getUser(this.userID);
+        }
+      }
+        // this.props.location.state === undefined
+
+
+      console.log("after call getuser");
+
       let formPath = `/home/${this.state.user._id}/dashboard/form`;
       return (
         <div className="inner-dashboard">
           <h1> Welcome, {this.state.user.name} </h1>
-          <Link to={formPath} {...this.props}> + Add </Link>
+          <Link to={formPath} whenSubmit={this.formSubmit} > + Add </Link>
           {this.sendSubscriptions()}
           {this.sendTrials()}
           {this.showDetails()}

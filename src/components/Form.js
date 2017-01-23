@@ -69,10 +69,19 @@ class Form extends Component {
     }).then( (response) => {
        return response.json();
     }).then((response) => {
-        let subscriptionID = response.subscription._id;
-        // console.log(subscriptionID);
+        let newSubscriptionID = response.subscription._id;
+
         let path = `/home/${userID}/dashboard`;
-        browserHistory.push(path);
+        browserHistory.push({
+          pathname: path,
+          state: {newSubscriptionID: newSubscriptionID}
+        });
+
+//         router.push({
+//   pathname: '/users/12',
+//   query: { modal: true },
+//   state: { fromDashboard: true }
+// })
     }).catch(function(err) {
       console.log(err);
     });

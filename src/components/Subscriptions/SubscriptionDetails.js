@@ -35,7 +35,6 @@ class SubscriptionDetails extends Component {
         }
       }).then(() => {
         let path = `/home/${userID}/dashboard`;
-        this.forceUpdate();
         browserHistory.push(path);
       }).catch(function(err) {
         console.log(err);
