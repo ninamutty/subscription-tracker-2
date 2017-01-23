@@ -76,12 +76,6 @@ class Form extends Component {
           pathname: path,
           state: {newSubscriptionID: newSubscriptionID}
         });
-
-//         router.push({
-//   pathname: '/users/12',
-//   query: { modal: true },
-//   state: { fromDashboard: true }
-// })
     }).catch(function(err) {
       console.log(err);
     });
@@ -106,11 +100,13 @@ class Form extends Component {
     }).then( (response) => {
       return response.json();
     }).then((response) => {
-      let subscriptionID = response.trial._id;
+      let newSubscriptionID = response.trial._id;
       // console.log(subscriptionID);
       let path = `/home/${userID}/dashboard`;
-      browserHistory.push(path);
-    }).catch(function(err) {
+      browserHistory.push({
+        pathname: path,
+        state: {newSubscriptionID: newSubscriptionID}
+      });    }).catch(function(err) {
       console.log(err);
     });
   }

@@ -87,17 +87,17 @@ class DashBoard extends Component {
           arrayOfIDs.push(trial._id);
         })
 
-        console.log(this.props.location.state);
-        console.log(arrayOfIDs);
-        console.log(this.props.location.state.newSubscriptionID);
-
-        console.log(!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) );
+        // console.log(this.props.location.state);
+        // console.log(arrayOfIDs);
+        // console.log(this.props.location.state.newSubscriptionID);
+        //
+        // console.log(!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) );
 
         if (!arrayOfIDs.includes(this.props.location.state.newSubscriptionID) ) {
-        console.log("*****************");
-        console.log(this.props.location.state.newSubscriptionID);
-        console.log("call getuser");
-        console.log("*****************");
+        // console.log("*****************");
+        // console.log(this.props.location.state.newSubscriptionID);
+        // console.log("call getuser");
+        // console.log("*****************");
          this.getUser(this.userID);
         }
       }
