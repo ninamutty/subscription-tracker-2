@@ -10,9 +10,9 @@ class Verify extends Component {
 
   render() {
     return (
-      <div className="main-content Verify">
-        <h1>Welcome to Subscription Tracker! </h1>
-        <p>Track all of your subscriptions in one place to more easily manage your spending! </p>
+      <div className="main-content verify">
+        <h2>Welcome! </h2>
+        <h4>With Subscription Tracker, You Can Easily Track All of Your Subscriptions In One Place </h4>
 
         <div className="forms row">
           <SignUp />

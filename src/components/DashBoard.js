@@ -102,7 +102,7 @@ class DashBoard extends Component {
       return (
         <div className="inner-dashboard">
           <h1> Welcome, {this.state.user.name} </h1>
-          <Link to={formPath} whenSubmit={this.formSubmit} > + Add </Link>
+          <Link to={formPath} whenSubmit={this.formSubmit} className="button success"> + Add </Link>
           {this.sendSubscriptions()}
           {this.sendTrials()}
           {this.showDetails()}

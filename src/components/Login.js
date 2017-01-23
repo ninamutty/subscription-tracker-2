@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import jwtDecode from 'jwt-decode';
+import InputPassword from 'react-ux-password-field';
 
 class Login extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class Login extends Component {
   // send post request to login a user
   handleLoginSubmit(event) {
     event.preventDefault();
+    console.log(event.target.elements[1].value);
     let email = event.target.elements[0].value;
     let password = event.target.elements[1].value;
     let user = {email: email, password: password}
@@ -46,11 +48,11 @@ class Login extends Component {
   render() {
     return (
       <div className="login-form-container column small-12 medium-6 large-6">
-        <h3>Already have an account? Please Login to Continue </h3>
-        <form onSubmit={this.handleLoginSubmit}>
+        <h4>Already have an account? Please <span className="verify-bold">Login</span> to Continue </h4>
+        <form onSubmit={this.handleLoginSubmit} className="login-form">
           <input type="text" placeholder="Email"/>
-          <input type="text" placeholder="Password"/>
-          <button type="submit">Log In</button>
+          <InputPassword placeholder="Password" infoBar={false} zxcvbn={false} />
+          <button type="submit" className="button hollow success">Log In</button>
         </form>
       </div>
     );
@@ -58,3 +60,6 @@ class Login extends Component {
 }
 
 export default Login;
+
+
+//           <input type="text" placeholder="Password"/>

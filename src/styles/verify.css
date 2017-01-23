@@ -1,0 +1,21 @@
+.verify {
+  text-align: center;
+  margin-top: 4%;
+}
+
+.login-form-container, .signup-form-container {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.signup-form, .login-form {
+  width: 70%;
+  margin: 5% auto 0 auto;
+}
+
+.verify-bold { font-weight: bold;}
+
+
+.signup-form button, .login-form button {
+  display: block;
+}
