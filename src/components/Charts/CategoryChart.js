@@ -48,7 +48,7 @@ class CategoryClass extends Component {
       return (
         <div className="small-chart-modal-container">
           <h3> {this.state.enter.name} </h3>
-          <p> Monthly Spending: {money} </p>
+          <p> Monthly Cost: {money} </p>
           <p> Percentage of Monthy Spending in {this.clickName}: {categoryPercent} </p>
           <p> Percentage of Total Monthly Spending: {totalPercent} </p>
         </div>

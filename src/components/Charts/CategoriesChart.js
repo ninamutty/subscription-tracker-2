@@ -42,7 +42,7 @@ class CategoriesChart extends Component {
       return (
         <div className="small-chart-modal-container">
           <h3> {this.state.enter.name} </h3>
-          <p> Monthly Spending: {money} </p>
+          <p> Monthly Cost: {money} </p>
           <p> Percentage of Total Monthy Spending: {percent} </p>
         </div>
       )
