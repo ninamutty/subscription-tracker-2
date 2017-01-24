@@ -20,7 +20,7 @@ class SubscriptionContainer extends Component {
     });
     return (
       <div className="all-subscriptions-container">
-        <h2> Subscriptions </h2>
+        <h2 className="subscriptions-header"> Subscriptions </h2>
         <div className="scroll-container" data-equalize>
           <ul className="subscription-container" data-equalizer="foo">
             {subscriptions}

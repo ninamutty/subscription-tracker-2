@@ -101,14 +101,14 @@ class DashBoard extends Component {
       let formPath = `/home/${this.state.user._id}/dashboard/form`;
       return (
         <div className="inner-dashboard">
-          <div className="dashboard-top row">
+          <div className="dashboard-top">
             <h2 className="welcome-person column small-12 medium-11"> Welcome, {this.state.user.name} </h2>
-            <Link to={formPath} whenSubmit={this.formSubmit} className="button hollow column small-12 medium-1"> + Add </Link>
           </div>
 
           {this.sendSubscriptions()}
           {this.sendTrials()}
           {this.showDetails()}
+          <Link to={formPath} whenSubmit={this.formSubmit} className="button hollow column small-12 medium-1 add-button"> + Add </Link>
 
           {this.props.children}
         </div>

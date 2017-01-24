@@ -1,14 +1,22 @@
 .welcome-person {
   display: inline-block;
+  font-size: 1.6rem;
 }
 
 .dashboard-top {
   display: block;
+  margin-top: 6%;
+  text-align: right;
 }
 
 div.all-subscriptions-container {
   border: 1px solid green;
   margin-top: 5%;
+}
+
+.subscriptions-header {
+  margin-left: 3%;
+  font-size: 2.4rem;
 }
 
 div.single-sub-container-div {
@@ -25,18 +33,63 @@ div.scroll-container {
   overflow: scroll;
   width: 100vw;
   height: 35%;
+  background-color: whitesmoke;
+  padding: 1.7%;
+  border: 1px solid whitesmoke;
+  box-shadow: inset 0 0 3em lightgray;
+  margin-left: 3%;
+  margin-bottom: 2%;
 }
 
+ul {
+  list-style: none;
+}
 
 li.subscription-solo {
   text-align: center;
-  padding: 2% 4%;
+  padding: 2.5% 7.5%;
   margin: 1% 3%;
-  width: auto;
   display: inline-block;
-  border: 1px solid blue;
+  /*border: 1px solid lightgray;*/
   vertical-align: text-top;
+  background-color: white;
+  box-shadow: 0 0 1em lightgray;
 }
+
+
+/* Trial Info */
+.trials-container {
+  width: 23%;
+}
+
+.trial-header {
+  margin-left: 3%;
+  font-size: 0.8rem;
+  z-index: 15;
+  background-color: #ef5353;
+  color: white;
+  position: fixed;
+  right: 13.5%;
+  top: 29.5%;
+  padding: 0.5%;
+  transform: rotate(340deg);
+  box-shadow: 0 0 0.4em  #ef5353;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trial-solo {
+  box-shadow: 0 0 2.7em lightgray;
+  text-align: center;
+  padding: 2%;
+  z-index: 10;
+  background-color: white;
+  position: fixed;
+  right: 3%;
+  top: 30%;
+}
+
+p.first-charge {font-weight: bold;}
 
 .category-listing-height {
   height: 80px;

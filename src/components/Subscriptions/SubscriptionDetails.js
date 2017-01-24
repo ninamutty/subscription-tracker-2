@@ -70,7 +70,7 @@ class SubscriptionDetails extends Component {
 
   findNextBill() {
     if (this.state.isTrial === false) {
-      let nextBill = moment(new Date(this.state.subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+      let nextBill = moment(new Date(this.state.subscription.nextBillingDate)).format("MMMM Do, YYYY")
       return <p>Next Billing Date: {nextBill} </p>
     }
   }
@@ -79,9 +79,9 @@ class SubscriptionDetails extends Component {
     // console.log(this.state.subscription);
     if (this.state.subscription.name !== undefined) {
       let subscription = this.state.subscription
-      let firstBill = moment(new Date(subscription.firstBillDate)).format("dddd, MMMM Do YYYY")
+      let firstBill = moment(new Date(subscription.firstBillDate)).format("MMMM Do, YYYY")
 
-      let notificationDate = moment(new Date(subscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+      let notificationDate = moment(new Date(subscription.nextBillingDate)).format("MMMM Do, YYYY")
 
       return (
         <div>

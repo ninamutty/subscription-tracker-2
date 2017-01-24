@@ -19,8 +19,7 @@ class TrialContainer extends Component {
                      setSelectState={this.props.setSelectState} />
     });
     return (
-      <div className="subscriptions-containers">
-        <h2> Trials </h2>
+      <div className="trials-container">
         <ul className="trial-container">
           {trials}
         </ul>
@@ -28,6 +27,7 @@ class TrialContainer extends Component {
     );
   }
 }
+
 
 export default TrialContainer;
 // .bind(this)?
