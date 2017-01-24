@@ -107,8 +107,8 @@ class DashBoard extends Component {
 
           {this.sendSubscriptions()}
           {this.sendTrials()}
+          <Link to={formPath} whenSubmit={this.formSubmit} className="button hollow add-button"> + New </Link>
           {this.showDetails()}
-          <Link to={formPath} whenSubmit={this.formSubmit} className="button hollow column small-12 medium-1 add-button"> + Add </Link>
 
           {this.props.children}
         </div>

@@ -71,7 +71,7 @@ class SubscriptionDetails extends Component {
   findNextBill() {
     if (this.state.isTrial === false) {
       let nextBill = moment(new Date(this.state.subscription.nextBillingDate)).format("MMMM Do, YYYY")
-      return <p>Next Billing Date: {nextBill} </p>
+      return <p className="column small-12 medium-4"> <span className="details-title">Next Billing Date: </span> {nextBill} </p>
     }
   }
 
@@ -84,16 +84,20 @@ class SubscriptionDetails extends Component {
       let notificationDate = moment(new Date(subscription.nextBillingDate)).format("MMMM Do, YYYY")
 
       return (
-        <div>
-          <h2>{subscription.name}</h2>
-          <p> Price: ${subscription.cost/100.00}</p>
-          <p> Category: {subscription.category}</p>
-          <p> Your Rating: {subscription.userRating}</p>
+        <div className="subscription-details-container">
+          <h2 className="subscription-details-name">{subscription.name}</h2>
+          <div className="details-container-inside row">
+            <div className="details-no-button column small-12 medium-10 large-10 row">
+              <p className="column small-12 medium-4"> <span className="details-title"> Price: </span> ${subscription.cost/100.00}</p>
+              <p className="column small-12 medium-4"> <span className="details-title"> Category: </span> {subscription.category}</p>
+              <p className="column small-12 medium-4"> <span className="details-title"> Your Rating: </span> {subscription.userRating}</p>
 
-          <p> First Billing Date: {firstBill}</p>
-          { this.findNextBill() }
-          <p> Billing Cycle: {subscription.billingCycle}</p>
-          <button  className="button alert hollow" onClick={this.deleteSubscription}> Delete </button>
+              <p className="column small-12 medium-4"> <span className="details-title"> First Billing Date: </span> {firstBill}</p>
+              { this.findNextBill() }
+              <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle: </span> {subscription.billingCycle}</p>
+            </div>
+            <button className="button hollow alert column small-12 medium-1 large-1 subscription-delete-button" onClick={this.deleteSubscription}> Delete </button>
+          </div>
         </div>
 
       );
