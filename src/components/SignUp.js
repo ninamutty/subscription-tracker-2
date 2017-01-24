@@ -19,29 +19,29 @@ class SignUp extends Component {
     console.log(password);
     let user = {name: name, email: email, password: password}
 
-    // const BASE_URL = 'http://localhost:8080/'
-    //
-    // fetch(`${BASE_URL}api/users`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     name: user.name,
-    //     email: user.email,
-    //     password: user.password,
-    //   })
-    // }).then( (response) => {
-    //   return response.json();
-    // }).then( (response) => {
-    //   this.setState({user: response.user})
-    // }).then( () => {
-    //   let path = `/home/${this.state.user.id}/dashboard`
-    //   browserHistory.push(path);
-    // }).catch(function(err) {
-    //   console.log(err);
-    // });
+    const BASE_URL = 'http://localhost:8080/'
+
+    fetch(`${BASE_URL}api/users`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: user.name,
+        email: user.email,
+        password: user.password,
+      })
+    }).then( (response) => {
+      return response.json();
+    }).then( (response) => {
+      this.setState({user: response.user})
+    }).then( () => {
+      let path = `/home/${this.state.user.id}/dashboard`
+      browserHistory.push(path);
+    }).catch(function(err) {
+      console.log(err);
+    });
 
     // send to home page here
   }
