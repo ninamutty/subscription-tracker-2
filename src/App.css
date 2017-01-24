@@ -1,10 +1,6 @@
 @import './styles/verify.css';
 @import './styles/dashboard.css';
 
-.App {
-  /*text-align: center;*/
-}
-
 .header {
   background-color: #3D9481;
   height: 95px;
@@ -30,6 +26,40 @@
 body {
   margin: 0;
 }
+
+.navigation-links {
+  /*margin: 8.5%;*/
+  text-align: center;
+  margin:  8.5% auto 0 auto;
+  color: black;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.navigation-links a {
+  margin: 0 2% 0 0;
+  padding: 0.3% 0.8%;
+  border-bottom: 1px solid black;
+}
+
+.navigation-links a.active {
+  border-bottom: 1px solid blue;
+  color: blue;
+}
+
+.navigation-links a:hover {
+  font-weight: bold;
+  border: 2px solid lightblue;
+  color: lightblue;
+  padding: 0.7%;
+}
+
+a:-webkit-any-link {
+  color: black;
+}
+
 
 #categories-chart-container {
   -webkit-box-sizing: border-box;

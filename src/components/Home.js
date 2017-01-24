@@ -38,9 +38,10 @@ class Home extends Component {
     let subscriptionPath = `/home/${this.userID}/dashboard`;
     return (
       <div>
-          <Link to={chartPath} activeClassName="active" > Spending </Link>
-          <Link to={subscriptionPath} activeClassName="active" > Subscriptions </Link>
-
+          <div className="navigation-links">
+            <Link to={chartPath} activeClassName="active"> Spending </Link>
+            <Link to={subscriptionPath} activeClassName="active"> Subscriptions </Link>
+          </div>
         {this.props.children}
       </div>
     )

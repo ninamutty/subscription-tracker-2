@@ -20,7 +20,7 @@
 }
 
 div.all-subscriptions-container {
-  margin-top: 10%;
+  margin-top: 2.5%;
 }
 
 .subscriptions-header {
@@ -135,6 +135,7 @@ span.details-title {
 div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.column.small-12.medium-1.subscription-delete-button {
   margin: 0;
   vertical-align: top;
+  text-transform: uppercase;
 }
 
 
@@ -143,9 +144,9 @@ div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.
 /* Subscription Addition */
 .button.hollow.add-button {
   text-transform: uppercase;
-  padding: 1% 2%;
+  padding: 1% 1.5%;
   margin-left: 89%;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 

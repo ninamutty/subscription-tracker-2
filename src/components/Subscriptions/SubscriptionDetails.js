@@ -71,7 +71,10 @@ class SubscriptionDetails extends Component {
   findNextBill() {
     if (this.state.isTrial === false) {
       let nextBill = moment(new Date(this.state.subscription.nextBillingDate)).format("MMMM Do, YYYY")
-      return <p className="column small-12 medium-4"> <span className="details-title">Next Billing Date: </span> {nextBill} </p>
+      let billingCycle = (this.state.subscription.billingCycle)
+      return (
+        <p className="column small-12 medium-4"> <span className="details-title">Next Billing Date: </span> {nextBill} </p>
+      );
     }
   }
 
@@ -94,7 +97,7 @@ class SubscriptionDetails extends Component {
 
               <p className="column small-12 medium-4"> <span className="details-title"> First Billing Date: </span> {firstBill}</p>
               { this.findNextBill() }
-              <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle: </span> {subscription.billingCycle}</p>
+                <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle: </span> {this.state.subscription.billingCycle} </p>
             </div>
             <button className="button hollow alert column small-12 medium-1 large-1 subscription-delete-button" onClick={this.deleteSubscription}> Delete </button>
           </div>
@@ -118,4 +121,6 @@ class SubscriptionDetails extends Component {
   }
 }
 
+
+//               <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle: </span> {subscription.billingCycle}</p>
 export default SubscriptionDetails;
