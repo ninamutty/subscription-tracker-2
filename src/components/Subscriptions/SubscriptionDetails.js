@@ -93,7 +93,7 @@ class SubscriptionDetails extends Component {
           <p> First Billing Date: {firstBill}</p>
           { this.findNextBill() }
           <p> Billing Cycle: {subscription.billingCycle}</p>
-          <button onClick={this.deleteSubscription}> Delete </button>
+          <button  className="button alert hollow" onClick={this.deleteSubscription}> Delete </button>
         </div>
 
       );

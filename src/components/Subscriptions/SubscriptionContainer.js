@@ -19,11 +19,13 @@ class SubscriptionContainer extends Component {
                      setSelectState={this.props.setSelectState} />
     });
     return (
-      <div className="subscriptions-containers">
+      <div className="all-subscriptions-container">
         <h2> Subscriptions </h2>
-        <ul className="subscription-container">
-          {subscriptions}
-        </ul>
+        <div className="scroll-container" data-equalize>
+          <ul className="subscription-container" data-equalizer="foo">
+            {subscriptions}
+          </ul>
+        </div>
       </div>
     );
   }

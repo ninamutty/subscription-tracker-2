@@ -5,3 +5,40 @@
 .dashboard-top {
   display: block;
 }
+
+div.all-subscriptions-container {
+  border: 1px solid green;
+  margin-top: 5%;
+}
+
+div.single-sub-container-div {
+  display: inline-block;
+}
+
+ul.subscription-container {
+  width: 200vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+div.scroll-container {
+  overflow: scroll;
+  width: 100vw;
+  height: 35%;
+}
+
+
+li.subscription-solo {
+  text-align: center;
+  padding: 2% 4%;
+  margin: 1% 3%;
+  width: auto;
+  display: inline-block;
+  border: 1px solid blue;
+  vertical-align: text-top;
+}
+
+.category-listing-height {
+  height: 80px;
+  /*border: 1px solid red;*/
+}

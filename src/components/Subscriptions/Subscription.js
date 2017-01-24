@@ -9,11 +9,13 @@ class Subscription extends Component {
   render() {
 
     return (
-      <div className="single-sub-container-div">
+      <div className="single-sub-container-div" data-equalizer-watch="foo">
         <li className="subscription-solo">
           <h3 className="name-link" onClick={this.props.onClick.bind(this, this.props.id)}> { this.props.name } </h3>
           <p> Price: ${this.props.cost/100.00} </p>
-          <p> Category: {this.props.category} </p>
+          <div className="category-listing-height">
+            <p> Category: {this.props.category} </p>
+          </div>
         </li>
         { this.props.children }
       </div>
