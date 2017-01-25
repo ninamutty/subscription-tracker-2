@@ -2,7 +2,7 @@
   display: inline-block;
   font-size: 1.6rem;
   position: absolute;
-  top: 7%;
+  top: 6%;
   left: 3%;
   color: white;
   z-index: 51;
@@ -14,11 +14,10 @@ button.logout-link {
   position: absolute;
   font-size: 1rem;
   position: absolute;
-  top: 7%;
+  top: 6%;
   right: 3%;
   color: white;
   z-index: 51;
-  /*text-transform: uppercase;*/
   border: 1px solid white;
   padding: 0.5%;
 }

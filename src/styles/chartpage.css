@@ -48,6 +48,11 @@
   margin-bottom: 0.6%;
 }
 
+div.row.charts-row {
+  margin: 4.5% 0 0 0;
+  width: 100%;
+  max-width: 100vw;
+}
 
 
 .categories-chart-container, .category-chart-container {
@@ -56,8 +61,8 @@
   box-sizing: border-box;
   display: inline-block;
   background-color: white;
-  postion: relative;
-  margin: 4% 0 0 1%;
+  /*postion: relative;*/
+  /*margin: 4% 0 0 1%;*/
   text-align: center;
   color: #2D3142;
 }
@@ -83,7 +88,7 @@
 
 .selected-subscription-details {
   vertical-align: top;
-  margin: 3.4% 0 0 2%;
+  /*margin: 3.4% 0 0 2%;*/
 }
 
 .selected-subscription-details, .chartpage-subscription-details, .chart-details-inner-container {

@@ -82,7 +82,7 @@ class CategoriesChart extends Component {
       }
     }
 
-    const COLORS = ['#855F83', '#E4CDE3', '#F4F4E9', '#CFAAD4', '#B284B7', '#53535C', '#A5C7C4', '#6D8689']
+    const COLORS = ["#CAD8E7", "#95A5C3", "#91677E", "#FE9E95", "#C97C7E", "#FEDAB3", "#C37E8A", "#F4C8A4"];
 
     // ['#65334E', '#F7EACA', '#696998', '#DE978F', '#CA907E', '#806F80'];
 

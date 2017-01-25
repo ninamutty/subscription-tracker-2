@@ -87,12 +87,7 @@ class CategoryClass extends Component {
       }
     }
 
-    // ['#F4E5E8', '#D9BCDA', '#5A4550', '#A68B88', '#F0E7F1'] PINKS
-    // ['#FEE3F4', "#FBC0F4", "#D480EB", "#933871", "#492395", "#2323ED"] Brighter pinks
-
-  // , ["#D7D5E9", "#CDACE3", "#B788C8", "#DAB2E6", "#DAC1E8", "#E3D0EB"]
-
-    const COLORS = [ "#CDACE3", "#B788C8", "#DAB2E6", "#DAC1E8", "#E3D0EB", "#D7D5E9"];
+    const COLORS =  ["#CAD8E7", "#95A5C3", "#91677E", "#FE9E95", "#AD5D5D", "#E65D6E", "#FEDAB3", "#C37E8A", "#F4C8A4"];
 
     const RADIAN = Math.PI / 180;
 

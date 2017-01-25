@@ -58,7 +58,7 @@ class ChartPage extends Component {
     if (this.state.categorySelected == true) {
       console.log("SPEND STATE: "+this.state.totalSpend);
       return (
-        <div className="category-chart-container">
+        <div className="category-chart-container column small-12 medium-6 large-4 end">
           <h4> {this.state.clickName} Spending </h4>
           <CategoryChart clickName={this.state.clickName} data={this.state.data} subscriptions={this.state.user.subscriptions} onClick={this.clickSubscription} totalSpend={this.state.totalSpend}/>
         </div>
@@ -77,7 +77,7 @@ class ChartPage extends Component {
   renderSelectedSubscription = () => {
     if (this.state.selectedSubscription.name !== undefined) {
       return (
-        <div className="selected-subscription-details">
+        <div className="selected-subscription-details column small-12 medium-6 large-3">
           <SubscriptionChartDetails subscription={this.state.selectedSubscription} subscriptionList={this.state.user.subscriptions} />
         </div>
       )
@@ -87,7 +87,7 @@ class ChartPage extends Component {
   renderCategoriesChart = () => {
     if (this.state.user.name !== undefined) {
       return (
-        <div className="categories-chart-container">
+        <div className="categories-chart-container column small-12 medium-6 large-5">
           <h4> Monthly Spending By Category </h4>
           <CategoriesChart subscriptions={this.state.user.subscriptions} onClick={this.selectCategory}/>
         </div>
@@ -118,9 +118,11 @@ class ChartPage extends Component {
           <h2 className="welcome-person column small-12 medium-11"> Welcome, {this.state.user.name} </h2>
         </div>
         {this.renderPricingDetails()}
-        {this.renderCategoriesChart()}
-        {this.renderACategory()}
-        {this.renderSelectedSubscription()}
+        <div className="row charts-row">
+          {this.renderCategoriesChart()}
+          {this.renderACategory()}
+          {this.renderSelectedSubscription()}
+        </div>
       </div>
     )
   }

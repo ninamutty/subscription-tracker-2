@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import Subscription from './Subscription';
-// import Trial from './Trial'
 import moment from 'moment';
 
 class SubscriptionDetails extends Component {
@@ -37,8 +35,8 @@ class SubscriptionDetails extends Component {
         }
       })
 
-      let firstBill = moment(new Date(this.selectedSubscription.firstBillDate)).format("dddd, MMMM Do YYYY")
-      let nextBill = moment(new Date(this.selectedSubscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+      let firstBill = moment(new Date(this.selectedSubscription.firstBillDate)).format("MMMM Do YYYY")
+      let nextBill = moment(new Date(this.selectedSubscription.nextBillingDate)).format("MMMM Do YYYY")
       let stars = this.toStars(this.selectedSubscription.userRating)
 
       return (
@@ -47,8 +45,8 @@ class SubscriptionDetails extends Component {
           <p> <span className="details-title"> Price: </span> ${this.selectedSubscription.cost/100.00}</p>
           <p> <span className="details-title"> Category: </span> {this.selectedSubscription.category}</p>
           <p> <span className="details-title"> Your Rating: </span> {stars}</p>
-          <p> <span className="details-title"> First Billing Date: </span> {firstBill}</p>
-          <p> <span className="details-title"> Next Billing Date: </span> {nextBill} </p>
+          <p> <span className="details-title"> First Bill: </span> {firstBill}</p>
+          <p> <span className="details-title"> Next Bill: </span> {nextBill} </p>
           <p> <span className="details-title"> Billing Cycle: </span> {this.selectedSubscription.billingCycle}</p>
         </div>
       );
