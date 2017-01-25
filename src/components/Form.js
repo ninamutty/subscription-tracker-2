@@ -101,7 +101,6 @@ class Form extends Component {
       return response.json();
     }).then((response) => {
       let newSubscriptionID = response.trial._id;
-      // console.log(subscriptionID);
       let path = `/home/${userID}/dashboard`;
       browserHistory.push({
         pathname: path,
@@ -110,8 +109,6 @@ class Form extends Component {
       console.log(err);
     });
   }
-
-
 
   handleClick = (changeName) => {
     var change = {};
@@ -132,12 +129,20 @@ class Form extends Component {
     this.setState(change);
   }
 
+  cancelForm = (e) => {
+    e.preventDefault();
+    let userID = this.props.params.user_id;
+    let path = `/home/${userID}/dashboard`;
+    browserHistory.push(path);
+  }
+
 
   render() {
     // console.log(this.props);
 
     let user_id = this.props.params.user_id
     return (
+      <div className="subscription-form-container">
       <div className="add-subscription-form">
         <h2> Add Subscription </h2>
         <form onSubmit={this.formSubmit}>
@@ -173,12 +178,12 @@ class Form extends Component {
             </select>
           </label>
 
-          <label>
+          <label className="date-input">
             First Billing Date:
             <DatePicker selected={this.state.firstBillDate} onChange={this.handleCostAndDateChange.bind(this, 'firstBillDate')} />
           </label>
 
-          <label>
+          <label className="date-input">
             Next Billing Date:
             <DatePicker selected={this.state.nextBillingDate} onChange={this.handleCostAndDateChange.bind(this, 'nextBillingDate')} />
           </label>
@@ -200,9 +205,10 @@ class Form extends Component {
               <option value={true}>Yes</option>
             </select>
           </label>
-
-          <input type="submit" value="Submit" />
+          <button className="cancel-form button warning hollow" onClick={this.cancelForm}> Cancel </button>
+          <input type="submit" value="Submit"  className="button success hollow submit-button"/>
         </form>
+      </div>
       </div>
     )
   }

@@ -25,7 +25,7 @@ div.all-subscriptions-container {
 .subscriptions-header {
   margin-left: 3%;
   font-size: 2.2rem;
-  letter-spacing: 3px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
   color: #2D3142;
 }
@@ -137,7 +137,7 @@ span.details-title {
 }
 
 .details-container-inside {
-  margin-top: 5.5%;
+  margin: 5.5% 0;
   color: #2D3142;
 }
 
@@ -149,7 +149,6 @@ div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.
 
 
 
-
 /* Subscription Addition */
 .button.hollow.add-button {
   text-transform: uppercase;
@@ -158,12 +157,59 @@ div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.
   font-size: 1rem;
 }
 
+.subscription-form-container {
+  box-shadow: 0 0 1em lightgray;
+  width: 40%;
+  margin: 0 auto 10% auto;
+  padding: 3% 0;
+  background-color: white;
+  z-index: 60;
+}
+
+.add-subscription-form {
+  width: 80%;
+  margin: 1% auto 0 auto;
+  color: #2D3142;
+}
+
+.add-subscription-form h2 {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 1.8rem;
+  padding-bottom: 1%;
+  margin-bottom: 5%;
+  border-bottom: 1px solid #2D3142;
+}
 
 
+.add-subscription-form form label {
+  margin: 0.5% auto 0 auto;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-subscription-form form label select, .add-subscription-form form label input {
+  letter-spacing: 1.5px;
+  color: gray;
+}
+
+.add-subscription-form form label.date-input div {
+  display: block;
+}
 
 
+form .submit-button.button.hollow.success, form button.cancel-form {
+  display: inline-block;
+  margin: 3%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-
+form button.cancel-form {
+  margin-left: 23%;
+}
 
 
 
