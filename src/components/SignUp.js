@@ -33,11 +33,14 @@ class SignUp extends Component {
         password: user.password,
       })
     }).then( (response) => {
+      console.log(response);
       return response.json();
     }).then( (response) => {
+      console.log(response);
       this.setState({user: response.user})
     }).then( () => {
-      let path = `/home/${this.state.user.id}/dashboard`
+      console.log(this.state.user);
+      let path = `/home/${this.state.user._id}/dashboard`
       browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);

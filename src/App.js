@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="main-content App">
         <header className="header">
-          <h1 className="header-title"> Subscribed </h1>
+          <h1 className="header-title"> Enrolled Regulars </h1>
         </header>
         { this.props.children }
       </div>

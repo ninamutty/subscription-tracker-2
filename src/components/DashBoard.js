@@ -69,6 +69,7 @@ class DashBoard extends Component {
   }
 
   renderUser() {
+    console.log(this.state.user);
     if (this.state.user.name !== undefined) {
       if (this.props.location.state !== undefined && this.props.location.state.newSubscriptionID !== undefined) {
         let arrayOfIDs = [];
@@ -109,8 +110,15 @@ class DashBoard extends Component {
           {this.sendTrials()}
           <Link to={formPath} whenSubmit={this.formSubmit} className="button hollow add-button"> + New </Link>
           {this.showDetails()}
-
           {this.props.children}
+        </div>
+      )
+    } else {
+      let formPath = `/home/${this.state.user._id}/dashboard/form`;
+      return (
+        <div>
+          <h2>Please Add a Subscription to Begin </h2>
+          <Link to={formPath} whenSubmit={this.formSubmit} className="button hollow add-button"> + New </Link>
         </div>
       )
     }

@@ -2,7 +2,7 @@
   display: inline-block;
   font-size: 1.6rem;
   position: absolute;
-  top: 6%;
+  top: 5.5%;
   left: 3%;
   color: white;
   z-index: 51;
@@ -14,7 +14,7 @@ button.logout-link {
   position: absolute;
   font-size: 1rem;
   position: absolute;
-  top: 6%;
+  top: 5.5%;
   right: 3%;
   color: white;
   z-index: 51;
@@ -26,10 +26,6 @@ button.logout-link {
 .dashboard-top {
   display: block;
   text-align: right;
-}
-
-.category-listing-height {
-  height: 85px;
 }
 
 div.all-subscriptions-container {
@@ -46,10 +42,21 @@ div.all-subscriptions-container {
 
 div.single-sub-container-div {
   display: inline-block;
+  margin: 0.3%;
+  min-width: auto;
+  white-space: nowrap;
+  text-align: center;
+  padding: 0.3%;
+  display: inline-block;
+  vertical-align: text-top;
+  background-color: white;
+  box-shadow: 0 0 1em lightgray;
+  color: #2D3142;
+  letter-spacing: 1px;
 }
 
 ul.subscription-container {
-  width: 200vw;
+  width: 300vw;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -65,13 +72,13 @@ div.scroll-container {
   margin-left: 3%;
   margin-right: 3%;
   margin-bottom: 2%;
+  /*display: inline-block;*/
 }
 
 .subscription-solo .name-link {
   margin-top: 3%;
   color: #2D3142;
   letter-spacing: 2px;
-  width: auto;
 }
 
 ul {
@@ -79,16 +86,9 @@ ul {
 }
 
 li.subscription-solo {
-  text-align: center;
+
+  overflow: visible;
   width: auto;
-  padding: 2% 8%;
-  margin: 1% 3%;
-  display: inline-block;
-  vertical-align: text-top;
-  background-color: white;
-  box-shadow: 0 0 1em lightgray;
-  color: #2D3142;
-  letter-spacing: 1px;
 }
 
 
@@ -105,7 +105,7 @@ li.subscription-solo {
   color: white;
   position: absolute;
   right: 13.5%;
-  top: 31%;
+  top: 31.5%;
   padding: 0.5%;
   transform: rotate(340deg);
   box-shadow: 0 0 0.4em  #ef5353;
@@ -121,7 +121,7 @@ li.subscription-solo {
   background-color: white;
   position: absolute;
   right: 4%;
-  top: 31%;
+  top: 31.5%;
   color: #2D3142;
 }
 
@@ -173,6 +173,7 @@ div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.
   text-transform: uppercase;
   padding: 1% 1.5%;
   margin-left: 90%;
+  margin-bottom: 0;
   font-size: 1rem;
 }
 

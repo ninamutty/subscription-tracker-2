@@ -61,8 +61,6 @@ div.row.charts-row {
   box-sizing: border-box;
   display: inline-block;
   background-color: white;
-  /*postion: relative;*/
-  /*margin: 4% 0 0 1%;*/
   text-align: center;
   color: #2D3142;
 }
@@ -75,32 +73,23 @@ div.row.charts-row {
   font-size: 1.3rem;
 }
 
-/*
-.small-chart-modal-container {
-  display: inline-block;
-  position: fixed;
-  left: 40%;
-  top: 20%;
-  border: 1px solid gray;
-  background-color: white;
-  z-index: 1;
-}*/
-
 .selected-subscription-details {
   vertical-align: top;
-  /*margin: 3.4% 0 0 2%;*/
+
 }
 
 .selected-subscription-details, .chartpage-subscription-details, .chart-details-inner-container {
   display: inline-block;
-}
-
-.chartpage-subscription-details {
-  /*border: 1px solid black;*/
-  padding: 3%;
+  padding: 0;
   text-align: center;
 }
 
+
+
 .chart-details-inner-container p:first-of-type {
-  padding-top: 5%;
+  padding-top: 10%;
+}
+
+.chart-details-inner-container p {
+  padding: 1.5% 0;
 }

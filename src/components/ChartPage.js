@@ -129,5 +129,3 @@ class ChartPage extends Component {
 }
 
 export default ChartPage;
-
-//         <h2 className="spending-header"> Spending </h2>
