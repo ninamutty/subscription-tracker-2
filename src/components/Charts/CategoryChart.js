@@ -87,7 +87,12 @@ class CategoryClass extends Component {
       }
     }
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    // ['#F4E5E8', '#D9BCDA', '#5A4550', '#A68B88', '#F0E7F1'] PINKS
+    // ['#FEE3F4', "#FBC0F4", "#D480EB", "#933871", "#492395", "#2323ED"] Brighter pinks
+
+  // , ["#D7D5E9", "#CDACE3", "#B788C8", "#DAB2E6", "#DAC1E8", "#E3D0EB"]
+
+    const COLORS = [ "#CDACE3", "#B788C8", "#DAB2E6", "#DAC1E8", "#E3D0EB", "#D7D5E9"];
 
     const RADIAN = Math.PI / 180;
 
@@ -106,11 +111,11 @@ class CategoryClass extends Component {
   	return (
       <div className="big-div-one-category-chart">
         {this.RenderCategoryDetails()}
-    	  <PieChart width={450} height={350} onMouseEnter={this.onPieEnter} className="piechart-container">
+    	  <PieChart width={500} height={350} onMouseEnter={this.onPieEnter} className="piechart-container">
          <Pie
             isAnimationActive={false}
             data={data}
-            cx={225}
+            cx={250}
             cy={175}
             labelLine={true}
             label={renderCustomizedLabel}

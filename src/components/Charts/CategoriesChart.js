@@ -82,9 +82,12 @@ class CategoriesChart extends Component {
       }
     }
 
-    const COLORS = ['#65334E', '#AA77AA', '#F8C3B1', '#B3CADA', '#D169A4'];
+    const COLORS = ['#855F83', '#E4CDE3', '#F4F4E9', '#CFAAD4', '#B284B7', '#53535C', '#A5C7C4', '#6D8689']
 
-    const RADIAN = Math.PI / 180;
+    // ['#65334E', '#F7EACA', '#696998', '#DE978F', '#CA907E', '#806F80'];
+
+
+    const RADIAN = Math.PI / 180
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name, value }) => {
       const radius = innerRadius + (outerRadius - innerRadius) * 1.25;
