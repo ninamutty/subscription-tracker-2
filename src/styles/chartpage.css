@@ -9,24 +9,24 @@
   color: #2D3142;
 }
 
-.main-spending-details, .small-chart-modal-container {
-  /*margin-top: 1.5%;*/
+.main-spending-details {
   color: #2D3142;
   box-shadow: 0 0 1em lightgray;
   padding: 0.5% 0;
   width: 35%;
-  margin: 2.5% 0 0 2%;
+  margin: 2.5% auto 0 auto;
+
 }
 
 .small-chart-modal-container {
   color: #2D3142;
   box-shadow: 0 0 1em lightgray;
-  padding: 0.5% 0;
+  padding: 0.7% 0;
   width: 50%;
-  /*margin: 2.5% 0 0 2%;*/
   position: absolute;
-  top: 18%;
-  left: 40%;
+  top: 22%;
+  left: 25%;
+  background-color: white;
 }
 
 .main-spending-details h4, .small-chart-modal-container h2 {
