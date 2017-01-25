@@ -56,6 +56,8 @@ div.scroll-container {
 .subscription-solo .name-link {
   margin-top: 3%;
   color: #2D3142;
+  letter-spacing: 2px;
+  width: auto;
 }
 
 ul {
@@ -64,7 +66,8 @@ ul {
 
 li.subscription-solo {
   text-align: center;
-  padding: 2% 7.5%;
+  width: auto;
+  padding: 2% 8%;
   margin: 1% 3%;
   display: inline-block;
   vertical-align: text-top;
@@ -109,6 +112,8 @@ li.subscription-solo {
 }
 
 p.first-charge {font-weight: bold;}
+
+
 
 
 /* Details Modal */
