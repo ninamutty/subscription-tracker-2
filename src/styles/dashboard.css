@@ -11,7 +11,6 @@
 
 .dashboard-top {
   display: block;
-  /*margin-top: 6%;*/
   text-align: right;
 }
 
@@ -72,6 +71,7 @@ li.subscription-solo {
   background-color: white;
   box-shadow: 0 0 1em lightgray;
   color: #2D3142;
+  letter-spacing: 1px;
 }
 
 
@@ -88,7 +88,7 @@ li.subscription-solo {
   color: white;
   position: absolute;
   right: 13.5%;
-  top: 29%;
+  top: 31%;
   padding: 0.5%;
   transform: rotate(340deg);
   box-shadow: 0 0 0.4em  #ef5353;
@@ -104,7 +104,7 @@ li.subscription-solo {
   background-color: white;
   position: absolute;
   right: 4%;
-  top: 29%;
+  top: 31%;
   color: #2D3142;
 }
 
@@ -112,6 +112,10 @@ p.first-charge {font-weight: bold;}
 
 
 /* Details Modal */
+.subscription-details-container {
+  margin-top: 0.7%;
+}
+
 .subscription-details-container div div p {
   display: inline-block;
   font-size: 1.1rem;
@@ -127,14 +131,13 @@ span.details-title {
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-left: 8.5%;
   color: #2D3142;
-
+  border-bottom: 1px solid #2D3142;
+  padding: 0 0 0.5% 0;
 }
 
 .details-container-inside {
-  border-top: 1px solid black;
-  padding-top: 1.5%;
+  margin-top: 5.5%;
   color: #2D3142;
 }
 
@@ -151,7 +154,7 @@ div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.
 .button.hollow.add-button {
   text-transform: uppercase;
   padding: 1% 1.5%;
-  margin-left: 89%;
+  margin-left: 90%;
   font-size: 1rem;
 }
 

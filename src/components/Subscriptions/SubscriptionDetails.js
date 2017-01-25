@@ -78,26 +78,40 @@ class SubscriptionDetails extends Component {
     }
   }
 
+  toStars = (rating) => {
+    let printed_stars = "";
+    if (rating === undefined) {
+      printed_stars = "Not Yet Rated";
+    } else {
+      for (var i = 0; i < rating; i++) {
+        printed_stars += "★";
+      }
+      for (var i = 0; i < (5 - rating); i++) {
+        printed_stars += "☆";
+      }
+    }
+    return printed_stars;
+  }
+
   renderSubscription() {
-    // console.log(this.state.subscription);
     if (this.state.subscription.name !== undefined) {
       let subscription = this.state.subscription
-      let firstBill = moment(new Date(subscription.firstBillDate)).format("MMMM Do, YYYY")
-
-      let notificationDate = moment(new Date(subscription.nextBillingDate)).format("MMMM Do, YYYY")
+      let firstBill = moment(new Date(subscription.firstBillDate)).format("MMMM Do, YYYY");
+      let notificationDate = moment(new Date(subscription.nextBillingDate)).format("MMMM Do, YYYY");
+      let stars = this.toStars(subscription.userRating)
 
       return (
-        <div className="subscription-details-container">
-          <h2 className="subscription-details-name">{subscription.name}</h2>
-          <div className="details-container-inside row">
+        <div className="subscription-details-container row">
+          <h2 className="subscription-details-name column small-12">{subscription.name}</h2>
+          <div className="details-container-inside column small-12 row">
             <div className="details-no-button column small-12 medium-10 large-10 row">
-              <p className="column small-12 medium-4"> <span className="details-title"> Price: </span> ${subscription.cost/100.00}</p>
-              <p className="column small-12 medium-4"> <span className="details-title"> Category: </span> {subscription.category}</p>
-              <p className="column small-12 medium-4"> <span className="details-title"> Your Rating: </span> {subscription.userRating}</p>
+              <p className="column small-12 medium-4"> <span className="details-title"> Price:</span> ${subscription.cost/100.00}</p>
+              <p className="column small-12 medium-4"> <span className="details-title"> Category:</span> {subscription.category}</p>
+              <p className="column small-12 medium-4"> <span className="details-title"> Your Rating:</span> {stars}</p>
 
-              <p className="column small-12 medium-4"> <span className="details-title"> First Billing Date: </span> {firstBill}</p>
+              <p className="column small-12 medium-4"> <span className="details-title"> First Billing Date:</span> {firstBill}</p>
               { this.findNextBill() }
-                <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle: </span> {this.state.subscription.billingCycle} </p>
+                <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle:</span> {this.state.subscription.billingCycle} </p>
             </div>
             <button className="button hollow alert column small-12 medium-1 large-1 subscription-delete-button" onClick={this.deleteSubscription}> Delete </button>
           </div>
