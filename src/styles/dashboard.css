@@ -28,6 +28,7 @@ div.all-subscriptions-container {
   font-size: 2.2rem;
   letter-spacing: 3px;
   text-transform: uppercase;
+  color: #2D3142;
 }
 
 div.single-sub-container-div {
@@ -55,6 +56,7 @@ div.scroll-container {
 
 .subscription-solo .name-link {
   margin-top: 3%;
+  color: #2D3142;
 }
 
 ul {
@@ -69,6 +71,7 @@ li.subscription-solo {
   vertical-align: text-top;
   background-color: white;
   box-shadow: 0 0 1em lightgray;
+  color: #2D3142;
 }
 
 
@@ -102,6 +105,7 @@ li.subscription-solo {
   position: absolute;
   right: 4%;
   top: 29%;
+  color: #2D3142;
 }
 
 p.first-charge {font-weight: bold;}
@@ -124,12 +128,14 @@ span.details-title {
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-left: 8.5%;
+  color: #2D3142;
 
 }
 
 .details-container-inside {
   border-top: 1px solid black;
   padding-top: 1.5%;
+  color: #2D3142;
 }
 
 div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.column.small-12.medium-1.subscription-delete-button {

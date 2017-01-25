@@ -1,8 +1,14 @@
 @import './styles/verify.css';
 @import './styles/dashboard.css';
 
+/*html {color: #647696, black;}*/
+/*2D3142*/
+
 .header {
-  background-color: #3D9481;
+  /*379197*/
+  /*3C539A*/
+  /*6C8F9D*/
+  background-color:  #647696; /*#3D9481;*/
   height: 95px;
   width: 100%;
   color: white;
@@ -23,15 +29,11 @@
 }
 
 
-body {
-  margin: 0;
-}
-
 .navigation-links {
   /*margin: 8.5%;*/
   text-align: center;
   margin:  8.5% auto 0 auto;
-  color: black;
+  color: #2D3142;
   font-size: 1.2rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -41,23 +43,23 @@ body {
 .navigation-links a {
   margin: 0 2% 0 0;
   padding: 0.3% 0.8%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #2D3142;
 }
 
 .navigation-links a.active {
-  border-bottom: 1px solid blue;
-  color: blue;
+  border-bottom: 1px solid #994636;
+  color: #994636;
 }
 
 .navigation-links a:hover {
   font-weight: bold;
-  border: 2px solid lightblue;
-  color: lightblue;
+  border: 2px solid #CA907E;
+  color: #CA907E;
   padding: 0.7%;
 }
 
 a:-webkit-any-link {
-  color: black;
+  color: #2D3142;
 }
 
 
