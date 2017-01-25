@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 
 class Home extends Component {
@@ -31,6 +31,10 @@ class Home extends Component {
     }
   }
 
+  logout = (e) => {
+    e.preventDefault();
+    browserHistory.push('/')
+  }
 
 
   render() {
@@ -39,6 +43,7 @@ class Home extends Component {
     return (
       <div>
           <div className="navigation-links">
+            <button className="logout-link" onClick={this.logout} > Logout </button>
             <Link to={chartPath} activeClassName="active"> Spending </Link>
             <Link to={subscriptionPath} activeClassName="active"> Subscriptions </Link>
           </div>

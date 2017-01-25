@@ -2,12 +2,27 @@
   display: inline-block;
   font-size: 1.6rem;
   position: absolute;
-  top: 5%;
-  right: 6%;
+  top: 7%;
+  left: 3%;
   color: white;
   z-index: 51;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  width: auto;
 }
+
+button.logout-link {
+  position: absolute;
+  font-size: 1rem;
+  position: absolute;
+  top: 7%;
+  right: 3%;
+  color: white;
+  z-index: 51;
+  /*text-transform: uppercase;*/
+  border: 1px solid white;
+  padding: 0.5%;
+}
+
 
 .dashboard-top {
   display: block;
