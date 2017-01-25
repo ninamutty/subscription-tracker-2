@@ -100,10 +100,10 @@ class ChartPage extends Component {
       this.calculateCost();
       return (
         <div className="main-spending-details row">
-          <h4> Overview  </h4>
-          <p className="column small-12 medium-4"> <span className="details-title"> Total Per Week: </span>  ${((this.monthlyCost / 4 ) / 100.00).toFixed(2)} </p>
-          <p className="column small-12 medium-4"> <span className="details-title"> Total Per Month: </span> ${(this.monthlyCost / 100.00).toFixed(2)} </p>
-          <p className="column small-12 medium-4"> <span className="details-title"> Total Per Year: </span> ${((this.monthlyCost * 12 ) / 100.00).toFixed(2)} </p>
+          <h4> Spending Overview  </h4>
+          <p> <span className="details-title"> Total Per Week: </span>  ${((this.monthlyCost / 4 ) / 100.00).toFixed(2)} </p>
+          <p> <span className="details-title"> Total Per Month: </span> ${(this.monthlyCost / 100.00).toFixed(2)} </p>
+          <p> <span className="details-title"> Total Per Year: </span> ${((this.monthlyCost * 12 ) / 100.00).toFixed(2)} </p>
         </div>
       )
     }
@@ -117,7 +117,6 @@ class ChartPage extends Component {
         <div className="dashboard-top">
           <h2 className="welcome-person column small-12 medium-11"> Welcome, {this.state.user.name} </h2>
         </div>
-        <h2 className="spending-header"> Spending </h2>
         {this.renderPricingDetails()}
         {this.renderCategoriesChart()}
         {this.renderACategory()}
@@ -128,3 +127,5 @@ class ChartPage extends Component {
 }
 
 export default ChartPage;
+
+//         <h2 className="spending-header"> Spending </h2>

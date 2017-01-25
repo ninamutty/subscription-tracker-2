@@ -10,6 +10,23 @@ class SubscriptionDetails extends Component {
     this.state = {dataSubscription: this.props.subscription, subscriptionList: this.props.subscriptionList}
   }
 
+  toStars = (rating) => {
+    let printed_stars = "";
+    let ratingRound = Math.floor(rating)
+    if (rating === undefined) {
+      printed_stars = "Not Yet Rated";
+    } else {
+      for (var i = 0; i < ratingRound; i++) {
+        printed_stars += "★";
+      }
+      for (var j=0; j < (5-ratingRound); j++) {
+        printed_stars += "☆";
+      }
+    }
+    return printed_stars;
+  }
+
+
   renderSubscription() {
     // if (this.selectedSubscription.name !== this.props.subscription.name) {
     if (this.props.subscription.name !== undefined) {
@@ -22,16 +39,17 @@ class SubscriptionDetails extends Component {
 
       let firstBill = moment(new Date(this.selectedSubscription.firstBillDate)).format("dddd, MMMM Do YYYY")
       let nextBill = moment(new Date(this.selectedSubscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
+      let stars = this.toStars(this.selectedSubscription.userRating)
 
       return (
         <div className="chart-details-inner-container">
           <h2>{this.selectedSubscription.name}</h2>
-          <p> Price: ${this.selectedSubscription.cost/100.00}</p>
-          <p> Category: {this.selectedSubscription.category}</p>
-          <p> Your Rating: {this.selectedSubscription.userRating}</p>
-          <p> First Billing Date: {firstBill}</p>
-          <p> Next Billing Date: {nextBill} </p>
-          <p> Billing Cycle: {this.selectedSubscription.billingCycle}</p>
+          <p> <span className="details-title"> Price: </span> ${this.selectedSubscription.cost/100.00}</p>
+          <p> <span className="details-title"> Category: </span> {this.selectedSubscription.category}</p>
+          <p> <span className="details-title"> Your Rating: </span> {stars}</p>
+          <p> <span className="details-title"> First Billing Date: </span> {firstBill}</p>
+          <p> <span className="details-title"> Next Billing Date: </span> {nextBill} </p>
+          <p> <span className="details-title"> Billing Cycle: </span> {this.selectedSubscription.billingCycle}</p>
         </div>
       );
     }

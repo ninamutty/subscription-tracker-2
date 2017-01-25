@@ -37,13 +37,15 @@ class CategoriesChart extends Component {
     if (this.state.hover == true) {
       let percent = `${((this.state.enter.value/this.total) * 100).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
+      let spendingPerYear = `$${(this.state.enter.value * 12)/100.00}`
 
       this.total = 0;
       return (
         <div className="small-chart-modal-container">
-          <h3> {this.state.enter.name} </h3>
-          <p> Monthly Cost: {money} </p>
-          <p> Percentage of Total Monthly Spending: {percent} </p>
+          <h2> {this.state.enter.name} </h2>
+          <p> <span className="details-title"> Monthly Cost: </span> {money} </p>
+          <p> <span className="details-title"> Yearly Cost: </span> {spendingPerYear} </p>
+          <p> <span className="details-title"> Percentage of Total Spending: </span> {percent} </p>
         </div>
       )
     }

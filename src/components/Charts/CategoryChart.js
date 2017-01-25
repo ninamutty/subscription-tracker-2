@@ -43,14 +43,16 @@ class CategoryClass extends Component {
       let categoryPercent = `${((this.state.enter.value/this.categoryTotal) * 100.00).toFixed(2)}%`
       let money = `$${this.state.enter.value/100.00}`
       let totalPercent = `${((this.state.enter.value/this.props.totalSpend) * 100.00).toFixed(2)}%`
+      let yearlySpending = `$${((this.state.enter.value * 12)/100.00)}`
 
       this.categoryTotal = 0;
       return (
         <div className="small-chart-modal-container">
-          <h3> {this.state.enter.name} </h3>
-          <p> Monthly Cost: {money} </p>
-          <p> Percentage of Monthy Spending in {this.clickName}: {categoryPercent} </p>
-          <p> Percentage of Total Monthly Spending: {totalPercent} </p>
+          <h2> {this.state.enter.name} </h2>
+          <p> <span className="details-title"> Monthly Cost: </span> {money} </p>
+          <p> <span className="details-title"> Yearly Cost: </span>  {yearlySpending} </p>
+          <p> <span className="details-title"> Percentage of {this.clickName}: </span> {categoryPercent} </p>
+          <p> <span className="details-title"> Percentage of Total Spending: </span> {totalPercent} </p>
         </div>
       )
     }

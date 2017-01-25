@@ -80,13 +80,14 @@ class SubscriptionDetails extends Component {
 
   toStars = (rating) => {
     let printed_stars = "";
+    let ratingRound = Math.floor(rating)
     if (rating === undefined) {
       printed_stars = "Not Yet Rated";
     } else {
-      for (var i = 0; i < rating; i++) {
+      for (var i = 0; i < ratingRound; i++) {
         printed_stars += "★";
       }
-      for (var i = 0; i < (5 - rating); i++) {
+      for (var j=0; j < (5-ratingRound); j++) {
         printed_stars += "☆";
       }
     }
