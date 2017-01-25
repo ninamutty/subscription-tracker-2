@@ -1,11 +1,14 @@
 .verify {
   text-align: center;
-  margin-top: 4%;
+  margin-top: 8%;
 }
 
 .login-form-container, .signup-form-container {
   text-align: center;
-  margin-top: 8%;
+  margin: 8% 1%;
+  box-shadow: 0 0 1em lightgray;
+  padding: 3% 6%;
+  width: 45%;
 }
 
 .signup-form, .login-form {
@@ -19,7 +22,7 @@
 .signup-form button, .login-form button {
   display: block;
   text-align: center;
-  margin: auto;
+  margin: 4% auto 0 auto;
 }
 
 div.passwordField {
