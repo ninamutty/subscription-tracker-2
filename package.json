@@ -1,6 +1,7 @@
 {
   "name": "subscription-tracker-2",
   "version": "0.1.0",
+  "homepage": "https://ninamutty.github.io/subscription-tracker-deployment",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.5"
