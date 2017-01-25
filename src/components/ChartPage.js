@@ -14,6 +14,7 @@ class ChartPage extends Component {
   }
 
   calculateCost = () => {
+    this.monthlyCost = 0;
     this.state.user.subscriptions.map((subscription) => {
       let cost;
       if (subscription.billingCycle == "Weekly") {
@@ -57,8 +58,8 @@ class ChartPage extends Component {
     if (this.state.categorySelected == true) {
       console.log("SPEND STATE: "+this.state.totalSpend);
       return (
-        <div id="categories-chart-container">
-          <h4> Monthly Spending In {this.state.clickName} </h4>
+        <div className="category-chart-container">
+          <h4> {this.state.clickName} Spending </h4>
           <CategoryChart clickName={this.state.clickName} data={this.state.data} subscriptions={this.state.user.subscriptions} onClick={this.clickSubscription} totalSpend={this.state.totalSpend}/>
         </div>
       )
@@ -76,7 +77,7 @@ class ChartPage extends Component {
   renderSelectedSubscription = () => {
     if (this.state.selectedSubscription.name !== undefined) {
       return (
-        <div id="selected-subscription-details">
+        <div className="selected-subscription-details">
           <SubscriptionChartDetails subscription={this.state.selectedSubscription} subscriptionList={this.state.user.subscriptions} />
         </div>
       )
@@ -86,7 +87,7 @@ class ChartPage extends Component {
   renderCategoriesChart = () => {
     if (this.state.user.name !== undefined) {
       return (
-        <div id="categories-chart-container">
+        <div className="categories-chart-container">
           <h4> Monthly Spending By Category </h4>
           <CategoriesChart subscriptions={this.state.user.subscriptions} onClick={this.selectCategory}/>
         </div>
@@ -98,12 +99,11 @@ class ChartPage extends Component {
     if (this.state.user.name !== undefined) {
       this.calculateCost();
       return (
-        <div id="main-spending-details">
-          <h4> Total Spending  </h4>
-          <p> Per Week: ${((this.monthlyCost / 4 ) / 100.00).toFixed(2)} </p>
-          <p> Per Month: ${(this.monthlyCost / 100.00).toFixed(2)} </p>
-          <p> Per Year: ${((this.monthlyCost * 12 ) / 100.00).toFixed(2)} </p>
-
+        <div className="main-spending-details row">
+          <h4> Overview  </h4>
+          <p className="column small-12 medium-4"> <span className="details-title"> Total Per Week: </span>  ${((this.monthlyCost / 4 ) / 100.00).toFixed(2)} </p>
+          <p className="column small-12 medium-4"> <span className="details-title"> Total Per Month: </span> ${(this.monthlyCost / 100.00).toFixed(2)} </p>
+          <p className="column small-12 medium-4"> <span className="details-title"> Total Per Year: </span> ${((this.monthlyCost * 12 ) / 100.00).toFixed(2)} </p>
         </div>
       )
     }
@@ -114,6 +114,10 @@ class ChartPage extends Component {
     this.checkUser()
     return(
       <div className="main-chart-container">
+        <div className="dashboard-top">
+          <h2 className="welcome-person column small-12 medium-11"> Welcome, {this.state.user.name} </h2>
+        </div>
+        <h2 className="spending-header"> Spending </h2>
         {this.renderPricingDetails()}
         {this.renderCategoriesChart()}
         {this.renderACategory()}

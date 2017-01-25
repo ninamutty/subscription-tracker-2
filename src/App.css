@@ -1,5 +1,7 @@
 @import './styles/verify.css';
 @import './styles/dashboard.css';
+@import './styles/chartpage.css';
+
 
 .header {
   /*379197*/
@@ -60,43 +62,6 @@ a:-webkit-any-link {
 }
 
 
-#categories-chart-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 1%;
-  display: inline-block;
-  background-color: white;
-  postion: relative;
-  margin: 5% 0 5% 2%;
-}
-
-.piechart-container, #categories-chart-container {
-  border: 1px solid black;
-  text-align: center;
-}
-
-.big-div-one-category-chart, .big-div-categories-chart {border: 1px solid red; padding:1%;}
-
-.big-div-one-category-chart {display: inline-block; width: auto;}
-
-.small-chart-modal-container {
-  display: inline-block;
-  position: fixed;
-  left: 40%;
-  top: 20%;
-  border: 1px solid blue;
-  background-color: white;
-  z-index: 1;
-}
-
-#selected-subscription-details {
-  width: 23%;
-  vertical-align: top;
-  margin-top: 10%;
-  display: inline-block;
-  margin-left: 1%;
-}
 
 
 

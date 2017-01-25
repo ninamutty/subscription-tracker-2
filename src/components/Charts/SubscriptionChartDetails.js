@@ -24,7 +24,7 @@ class SubscriptionDetails extends Component {
       let nextBill = moment(new Date(this.selectedSubscription.nextBillingDate)).format("dddd, MMMM Do YYYY")
 
       return (
-        <div>
+        <div className="chart-details-inner-container">
           <h2>{this.selectedSubscription.name}</h2>
           <p> Price: ${this.selectedSubscription.cost/100.00}</p>
           <p> Category: {this.selectedSubscription.category}</p>

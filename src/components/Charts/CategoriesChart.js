@@ -43,7 +43,7 @@ class CategoriesChart extends Component {
         <div className="small-chart-modal-container">
           <h3> {this.state.enter.name} </h3>
           <p> Monthly Cost: {money} </p>
-          <p> Percentage of Total Monthy Spending: {percent} </p>
+          <p> Percentage of Total Monthly Spending: {percent} </p>
         </div>
       )
     }
@@ -99,12 +99,12 @@ class CategoriesChart extends Component {
   	return (
       <div className="big-div-categories-chart">
         {this.RenderCategoryDetails()}
-    	  <PieChart width={500} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
+    	  <PieChart width={520} height={350} onMouseEnter={this.onPieEnter} className="piechart-container">
          <Pie
             isAnimationActive={false}
             data={data}
-            cx={250}
-            cy={200}
+            cx={260}
+            cy={175}
             labelLine={true}
             label={renderCustomizedLabel}
             outerRadius={120}

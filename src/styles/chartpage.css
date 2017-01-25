@@ -1,0 +1,111 @@
+
+
+.spending-header {
+  margin-top: 2%;
+  margin-left: 3%;
+  font-size: 2.2rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #2D3142;
+}
+
+.main-spending-details {
+  margin-top: 1.5%;
+  color: #2D3142;
+  box-shadow: 0 0 1em lightgray;
+  padding: 0.7% 0;
+}
+
+.main-spending-details h4 {
+  text-align: center;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  width: 15%;
+  margin: auto;
+  border-bottom: 1px solid #2D3142;
+}
+
+.main-spending-details p {
+  display: inline-block;
+  color: #2D3142;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 1.5%;
+  letter-spacing: 1px;
+}
+
+.categories-chart-container, .category-chart-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: white;
+  postion: relative;
+  margin: 4% 0 2.5% 2%;
+  text-align: center;
+  color: #2D3142;
+}
+
+.categories-chart-container h4, .category-chart-container h4, .chartpage-subscription-details h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #2D3142;
+  padding-bottom: 1%;
+  font-size: 1.3rem;
+}
+
+
+.small-chart-modal-container {
+  display: inline-block;
+  position: fixed;
+  left: 40%;
+  top: 20%;
+  border: 1px solid gray;
+  background-color: white;
+  z-index: 1;
+}
+
+.selected-subscription-details, .chartpage-subscription-details, .chart-details-inner-container {
+  display: inline-block;
+}
+
+.chartpage-subscription-details {
+  border: 1px solid black;
+  padding: 3%;
+  text-align: center;
+}
+
+
+
+/*.big-div-categories-chart {}*/
+
+
+
+/*
+.piechart-container, .categories-chart-container {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.big-div-one-category-chart, .big-div-categories-chart {border: 1px solid red; padding:1%;}
+
+.big-div-one-category-chart {display: inline-block; width: auto;}
+
+.small-chart-modal-container {
+  display: inline-block;
+  position: fixed;
+  left: 40%;
+  top: 20%;
+  border: 1px solid blue;
+  background-color: white;
+  z-index: 1;
+}
+
+#selected-subscription-details {
+  width: 23%;
+  vertical-align: top;
+  margin-top: 10%;
+  display: inline-block;
+  margin-left: 1%;
+}*/

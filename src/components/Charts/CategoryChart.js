@@ -104,12 +104,12 @@ class CategoryClass extends Component {
   	return (
       <div className="big-div-one-category-chart">
         {this.RenderCategoryDetails()}
-    	  <PieChart width={400} height={400} onMouseEnter={this.onPieEnter} className="piechart-container">
+    	  <PieChart width={400} height={350} onMouseEnter={this.onPieEnter} className="piechart-container">
          <Pie
             isAnimationActive={false}
             data={data}
             cx={200}
-            cy={200}
+            cy={175}
             labelLine={true}
             label={renderCustomizedLabel}
             outerRadius={120}

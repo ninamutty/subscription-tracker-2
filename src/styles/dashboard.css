@@ -163,7 +163,7 @@ div.details-no-button.column.small-12.medium-11.row, button.button.alert.hollow.
   margin: 0 auto 10% auto;
   padding: 3% 0;
   background-color: white;
-  z-index: 60;
+  /*z-index: 60;*/
 }
 
 .add-subscription-form {
