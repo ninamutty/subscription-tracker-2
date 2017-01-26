@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import InputPassword from 'react-ux-password-field';
 
 
@@ -38,7 +38,7 @@ class SignUp extends Component {
       this.setState({user: response.user})
     }).then( () => {
       let path = `/subscription-tracker-2/home/${this.state.user._id}/dashboard`
-      hashHistory.push(path);
+      browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);
     });

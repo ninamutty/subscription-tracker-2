@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import jwtDecode from 'jwt-decode';
 import InputPassword from 'react-ux-password-field';
 
@@ -36,7 +36,7 @@ class Login extends Component {
       this.setState({userID: decoded.id})
     }).then( () => {
       let userID = this.state.userID
-      hashHistory.push(`/subscription-tracker-2/home/${userID}/dashboard`)
+      browserHistory.push(`/subscription-tracker-2/home/${userID}/dashboard`)
     }).catch(function(err) {
       console.log(err);
     });

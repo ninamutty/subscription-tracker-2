@@ -7,7 +7,6 @@ class SubscriptionContainer extends Component {
   }
 
   render() {
-    // console.log(this.props);
     let subscriptionList = this.props.subscriptions;
     let subscriptions = subscriptionList.map((subscription) => {
       return <Subscription name={subscription.name}

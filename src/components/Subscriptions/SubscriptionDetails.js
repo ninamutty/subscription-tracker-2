@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Subscription from './Subscription';
 import Trial from './Trial'
 import moment from 'moment';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 class SubscriptionDetails extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class SubscriptionDetails extends Component {
 
         let path = `/subscription-tracker-2/home/${userID}/dashboard`;
         this.setState({subscription: {}});
-        hashHistory.push({
+        browserHistory.push({
           pathname: path,
           state: {deletedSubscriptionID: deletedSubscriptionID}
         });
