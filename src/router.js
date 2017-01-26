@@ -16,13 +16,13 @@ import Home from './components/Home';
 const routes = (
   <Router history={browserHistory}>
     <Route component={App} >
-      <Route path="/subscription-tracker-deployment/" component={Verify} />
+      <Route path="/subscription-tracker-2/" component={Verify} />
 
-      <Route path="/subscription-tracker-deployment/home/:user_id" component={Home}>
-        <IndexRedirect to="/subscription-tracker-deployment/home/:user_id/dashboard" />
-        <Route path="/subscription-tracker-deployment/home/:user_id/charts" component={ChartPage} />
-        <Route path="/subscription-tracker-deployment/home/:user_id/dashboard" component={DashBoard} >
-          <Route path="/subscription-tracker-deployment/home/:user_id/dashboard/form" component={Form} />
+      <Route path="/subscription-tracker-2/home/:user_id" component={Home}>
+        <IndexRedirect to="/subscription-tracker-2/home/:user_id/dashboard" />
+        <Route path="/subscription-tracker-2/home/:user_id/charts" component={ChartPage} />
+        <Route path="/subscription-tracker-2/home/:user_id/dashboard" component={DashBoard} >
+          <Route path="/subscription-tracker-2/home/:user_id/dashboard/form" component={Form} />
         </Route>
       </Route>
 
