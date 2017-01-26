@@ -12,9 +12,6 @@ import ChartPage from './components/ChartPage';
 import Home from './components/Home';
 
 
-
-// redo routes so user_id is before dashboard and charts
-
 // Routes
 const routes = (
   <Router history={hashHistory}>

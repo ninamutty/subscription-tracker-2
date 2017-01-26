@@ -137,5 +137,4 @@ class SubscriptionDetails extends Component {
 }
 
 
-//               <p className="column small-12 medium-4"> <span className="details-title"> Billing Cycle: </span> {subscription.billingCycle}</p>
 export default SubscriptionDetails;

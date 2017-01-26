@@ -48,8 +48,6 @@ class DashBoard extends Component {
 
   showDetails = () => {
     if (this.state.showDetails === true) {
-      // console.log(this.props.location.deleteSubscriptionID);
-      // console.log(this.state.subscriptionID);
       return  <SubscriptionDetails subscriptionID={this.state.subscriptionID} subscriptions={this.state.user.subscriptions} trials={this.state.user.trials} userID={this.userID}/>
     } else {
       return (<div></div>);
@@ -69,7 +67,6 @@ class DashBoard extends Component {
   }
 
   renderUser() {
-    console.log(this.state.user);
     if (this.state.user.name !== undefined) {
       if (this.props.location.state !== undefined && this.props.location.state.newSubscriptionID !== undefined) {
         let arrayOfIDs = [];
@@ -93,7 +90,6 @@ class DashBoard extends Component {
           arrayOfIDs.push(trial._id);
         })
         if (arrayOfIDs.includes(this.props.location.state.deletedSubscriptionID) ) {
-          // this.removeSelectState();
           this.getUser(this.userID);
         }
       }
@@ -134,9 +130,6 @@ class DashBoard extends Component {
     );
   }
 }
-
-
-
 
 
 

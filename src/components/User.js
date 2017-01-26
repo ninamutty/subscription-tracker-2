@@ -24,9 +24,6 @@ class User extends Component {
   }
 
   render() {
-    // this.getUser('587d6881b31a3bba36e908fc');
-    // console.log(this.state.subscriptions);
-
     return (
       <div className="welcome">
         <button onClick={() => this.getUser('587d6881b31a3bba36e908fc')}> Get User </button>

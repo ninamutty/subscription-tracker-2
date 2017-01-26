@@ -30,4 +30,3 @@ class TrialContainer extends Component {
 
 
 export default TrialContainer;
-// .bind(this)?

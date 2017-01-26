@@ -13,7 +13,6 @@ class Login extends Component {
   // send post request to login a user
   handleLoginSubmit(event) {
     event.preventDefault();
-    console.log(event.target.elements[1].value);
     let email = event.target.elements[0].value;
     let password = event.target.elements[1].value;
     let user = {email: email, password: password}
@@ -60,6 +59,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-
-//           <input type="text" placeholder="Password"/>

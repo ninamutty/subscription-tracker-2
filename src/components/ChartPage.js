@@ -27,7 +27,6 @@ class ChartPage extends Component {
 
       this.monthlyCost += cost;
     });
-    // return this.monthlyCost;
   }
 
   getUser(userID) {

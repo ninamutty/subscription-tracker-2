@@ -9,8 +9,6 @@ class Trial extends Component {
 
   render() {
     let firstBill = moment(new Date(this.props.firstBillDate)).format("MMMM Do, YYYY");
-    // console.log(this.props);
-
 
     return (
       <div className="single-trial-container-div">
