@@ -18,11 +18,11 @@ const routes = (
     <Route component={App} >
       <Route path="/" component={Verify} />
 
-      <Route path="home/:user_id" component={Home}>
-        <IndexRedirect to="home/:user_id/dashboard" />
-        <Route path="home/:user_id/charts" component={ChartPage} />
-        <Route path="home/:user_id/dashboard" component={DashBoard} >
-          <Route path="home/:user_id/dashboard/form" component={Form} />
+      <Route path="/home/:user_id" component={Home}>
+        <IndexRedirect to="/home/:user_id/dashboard" />
+        <Route path="/home/:user_id/charts" component={ChartPage} />
+        <Route path="/home/:user_id/dashboard" component={DashBoard} >
+          <Route path="/home/:user_id/dashboard/form" component={Form} />
         </Route>
       </Route>
 
