@@ -71,7 +71,7 @@ class Form extends Component {
     }).then((response) => {
         let newSubscriptionID = response.subscription._id;
 
-        let path = `/home/${userID}/dashboard`;
+        let path = `home/${userID}/dashboard`;
         browserHistory.push({
           pathname: path,
           state: {newSubscriptionID: newSubscriptionID}
@@ -101,7 +101,7 @@ class Form extends Component {
       return response.json();
     }).then((response) => {
       let newSubscriptionID = response.trial._id;
-      let path = `/home/${userID}/dashboard`;
+      let path = `home/${userID}/dashboard`;
       browserHistory.push({
         pathname: path,
         state: {newSubscriptionID: newSubscriptionID}
@@ -132,7 +132,7 @@ class Form extends Component {
   cancelForm = (e) => {
     e.preventDefault();
     let userID = this.props.params.user_id;
-    let path = `/home/${userID}/dashboard`;
+    let path = `home/${userID}/dashboard`;
     browserHistory.push(path);
   }
 
