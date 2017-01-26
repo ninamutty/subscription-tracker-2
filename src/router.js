@@ -19,10 +19,10 @@ const routes = (
       <Route path="/subscription-tracker-2/" component={Verify} />
 
       <Route path="/subscription-tracker-2/home/:user_id" component={Home}>
-        <IndexRedirect to="dashboard" />
-        <Route path="charts" component={ChartPage} />
-        <Route path="dashboard" component={DashBoard} >
-          <Route path="form" component={Form} />
+        <IndexRedirect to="/subscription-tracker-2/dashboard" />
+        <Route path="/subscription-tracker-2/charts" component={ChartPage} />
+        <Route path="/subscription-tracker-2/dashboard" component={DashBoard} >
+          <Route path="/subscription-tracker-2/form" component={Form} />
         </Route>
       </Route>
 
