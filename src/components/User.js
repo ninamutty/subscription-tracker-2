@@ -40,7 +40,4 @@ class User extends Component {
   }
 }
 
-// 587d6881b31a3bba36e908fc
-
 export default User;
-// .then(response => {return response.json()});

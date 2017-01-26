@@ -1,6 +1,6 @@
 // Libs
 import React from 'react';
-import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
+import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 
 // Components
 import App from './App';
@@ -17,7 +17,7 @@ import Home from './components/Home';
 
 // Routes
 const routes = (
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route component={App} >
       <Route path="/subscription-tracker-2/" component={Verify} />
 

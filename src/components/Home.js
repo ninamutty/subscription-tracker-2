@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 
 class Home extends Component {
@@ -33,7 +33,7 @@ class Home extends Component {
 
   logout = (e) => {
     e.preventDefault();
-    browserHistory.push('/')
+    hashHistory.push('/')
   }
 
 

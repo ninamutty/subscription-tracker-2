@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, browserHistory} from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import CurrencyInput from 'react-currency-input';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -72,7 +72,7 @@ class Form extends Component {
         let newSubscriptionID = response.subscription._id;
 
         let path = `/subscription-tracker-2/home/${userID}/dashboard`;
-        browserHistory.push({
+        hashHistory.push({
           pathname: path,
           state: {newSubscriptionID: newSubscriptionID}
         });
@@ -102,7 +102,7 @@ class Form extends Component {
     }).then((response) => {
       let newSubscriptionID = response.trial._id;
       let path = `/subscription-tracker-2/home/${userID}/dashboard`;
-      browserHistory.push({
+      hashHistory.push({
         pathname: path,
         state: {newSubscriptionID: newSubscriptionID}
       });    }).catch(function(err) {
