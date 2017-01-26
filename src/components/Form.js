@@ -39,7 +39,7 @@ class Form extends Component {
   }
 
   createNew(subscription) {
-    const BASE_URL = 'https://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
+    const BASE_URL = 'https://nina-capstone-api.com/'
     let userID = this.props.params.user_id
 
     // Post to user subscriptions or user trials

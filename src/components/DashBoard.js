@@ -17,7 +17,7 @@ class DashBoard extends Component {
 
 
   getUser(userID) {
-    const BASE_URL = 'https://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
+    const BASE_URL = 'https://nina-capstone-api.com/'
 
     fetch(`${BASE_URL}api/users/${userID}`, {
       accept: 'application/json',

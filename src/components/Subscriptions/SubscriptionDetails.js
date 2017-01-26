@@ -16,7 +16,7 @@ class SubscriptionDetails extends Component {
 
   deleteSubscription(event) {
     event.preventDefault();
-    const BASE_URL = 'https://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
+    const BASE_URL = 'https://nina-capstone-api.com/'
     let userID = this.props.userID;
     let subscriptionID = this.props.subscriptionID;
     let type;
