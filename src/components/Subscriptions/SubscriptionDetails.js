@@ -36,7 +36,7 @@ class SubscriptionDetails extends Component {
       }).then(() => {
         let deletedSubscriptionID = subscriptionID
 
-        let path = `/subscription-tracker-2/home/${userID}/dashboard`;
+        let path = `home/${userID}/dashboard`;
         this.setState({subscription: {}});
         browserHistory.push({
           pathname: path,

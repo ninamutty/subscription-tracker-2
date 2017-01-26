@@ -38,8 +38,8 @@ class Home extends Component {
 
 
   render() {
-    let chartPath = `/subscription-tracker-2/home/${this.userID}/charts`;
-    let subscriptionPath = `/subscription-tracker-2/home/${this.userID}/dashboard`;
+    let chartPath = `home/${this.userID}/charts`;
+    let subscriptionPath = `home/${this.userID}/dashboard`;
     return (
       <div>
           <div className="navigation-links">

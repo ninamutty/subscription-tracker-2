@@ -132,7 +132,7 @@ class Form extends Component {
   cancelForm = (e) => {
     e.preventDefault();
     let userID = this.props.params.user_id;
-    let path = `/subscription-tracker-2/home/${userID}/dashboard`;
+    let path = `home/${userID}/dashboard`;
     browserHistory.push(path);
   }
 
