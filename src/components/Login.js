@@ -17,7 +17,7 @@ class Login extends Component {
     let password = event.target.elements[1].value;
     let user = {email: email, password: password}
 
-    const BASE_URL = 'http://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
+    const BASE_URL = 'https://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
 
     fetch(`${BASE_URL}login`, {
       method: 'POST',

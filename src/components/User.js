@@ -12,7 +12,7 @@ class User extends Component {
 
 
   getUser = (userID) => {
-    fetch(`custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/api/users/${userID}`, {
+    fetch(`https://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/api/users/${userID}`, {
       accept: 'application/json',
     }).then(this.parseJSON).then( (response) => {
       this.setState({user: response.user});
