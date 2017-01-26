@@ -99,7 +99,7 @@ class DashBoard extends Component {
       }
 
 
-      let formPath = `/home/${this.state.user._id}/dashboard/form`;
+      let formPath = `/subscription-tracker-2/home/${this.state.user._id}/dashboard/form`;
       return (
         <div className="inner-dashboard">
           <div className="dashboard-top">
@@ -114,7 +114,7 @@ class DashBoard extends Component {
         </div>
       )
     } else {
-      let formPath = `/home/${this.state.user._id}/dashboard/form`;
+      let formPath = `/subscription-tracker-2/home/${this.state.user._id}/dashboard/form`;
       return (
         <div>
           <h2>Please Add a Subscription to Begin </h2>

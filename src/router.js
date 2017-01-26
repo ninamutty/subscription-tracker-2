@@ -19,9 +19,9 @@ import Home from './components/Home';
 const routes = (
   <Router history={browserHistory}>
     <Route component={App} >
-      <Route path="/" component={Verify} />
+      <Route path="/subscription-tracker-2/" component={Verify} />
 
-      <Route path="home/:user_id" component={Home}>
+      <Route path="/subscription-tracker-2/home/:user_id" component={Home}>
         <IndexRedirect to="dashboard" />
         <Route path="charts" component={ChartPage} />
         <Route path="dashboard" component={DashBoard} >

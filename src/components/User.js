@@ -25,7 +25,7 @@ class User extends Component {
 
   render() {
     // this.getUser('587d6881b31a3bba36e908fc');
-    console.log(this.state.subscriptions);
+    // console.log(this.state.subscriptions);
 
     return (
       <div className="welcome">
@@ -44,20 +44,3 @@ class User extends Component {
 
 export default User;
 // .then(response => {return response.json()});
-
-
-// <ul>
-// { this.state.subscriptions.map({
-//   <li>
-//     <h5> {this.state.subscriptions[i].name} </h5>
-//     <p> {this.state.subscriptions[i].cost} </p>
-//     <p> {this.state.subscriptions[i].name} </p>
-//     <p> {this.state.subscriptions[i].name} </p>
-//
-//   </li>
-// })
-// }
-// <p> Cost: {this.state.subscriptions !== [] ? this.state.subscriptions[0].cost} </p>
-
-// <h5> Name: {this.state.subscriptions[0].name} </h5>
-// <p> Cost: {this.state.subscriptions[0].cost} </p>

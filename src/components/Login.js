@@ -37,7 +37,7 @@ class Login extends Component {
       this.setState({userID: decoded.id})
     }).then( () => {
       let userID = this.state.userID
-      browserHistory.push(`/home/${userID}/dashboard`)
+      browserHistory.push(`/subscription-tracker-2/home/${userID}/dashboard`)
     }).catch(function(err) {
       console.log(err);
     });

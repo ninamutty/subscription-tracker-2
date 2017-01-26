@@ -84,9 +84,6 @@ class CategoriesChart extends Component {
 
     const COLORS = ["#CAD8E7", "#95A5C3", "#91677E", "#FE9E95", "#C97C7E", "#FEDAB3", "#C37E8A", "#F4C8A4"];
 
-    // ['#65334E', '#F7EACA', '#696998', '#DE978F', '#CA907E', '#806F80'];
-
-
     const RADIAN = Math.PI / 180
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name, value }) => {
