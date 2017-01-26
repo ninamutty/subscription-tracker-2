@@ -37,7 +37,7 @@ class SignUp extends Component {
     }).then( (response) => {
       this.setState({user: response.user})
     }).then( () => {
-      let path = `home/${this.state.user._id}/dashboard`
+      let path = `/home/${this.state.user._id}/dashboard`
       browserHistory.push(path);
     }).catch(function(err) {
       console.log(err);

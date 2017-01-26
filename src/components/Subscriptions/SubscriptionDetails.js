@@ -125,7 +125,6 @@ class SubscriptionDetails extends Component {
   }
 
   render() {
-    console.log("rendering subscription detail");
     this.checkSubscription();
     return (
       <div>

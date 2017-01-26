@@ -110,7 +110,7 @@ class DashBoard extends Component {
         </div>
       )
     } else {
-      let formPath = `home/${this.state.user._id}/dashboard/form`;
+      let formPath = `/home/${this.state.user._id}/dashboard/form`;
       return (
         <div>
           <h2>Please Add a Subscription to Begin </h2>
