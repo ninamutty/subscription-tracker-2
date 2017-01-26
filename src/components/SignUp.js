@@ -19,7 +19,7 @@ class SignUp extends Component {
     console.log(password);
     let user = {name: name, email: email, password: password}
 
-    const BASE_URL = 'https://custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
+    const BASE_URL = 'custom-env.rfpftqwtew.us-east-1.elasticbeanstalk.com/'
 
     fetch(`${BASE_URL}api/users`, {
       method: 'POST',
