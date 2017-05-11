@@ -12,6 +12,6 @@ Javascript full-stack web application.
 ## Demos
 *Note: Unfortnately, due to costs I am not currently able to maintain the live site. See screen shots and video below. 
 
-![Video](/public/Demos/subtracked-demo.mov)
+### [Watch on YouTube](https://www.youtube.com/watch?v=nmxiPi6R3Us&feature=youtu.be)
 ![Dashboard](/public/Demos/subtracked-dashboard.png)
 ![Charts](/public/Demos/subtracked-graphs.png)
